@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ConducteurComponent } from './EnititeComponent/conducteur/conducteur.component';
 import { GestionnaireComponent } from './EnititeComponent/gestionnaire/gestionnaire.component';
 import { NavBarComponent } from './EnititeComponent/nav-bar/nav-bar.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -14,10 +16,12 @@ import { NavBarComponent } from './EnititeComponent/nav-bar/nav-bar.component';
     GestionnaireComponent,
     NavBarComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

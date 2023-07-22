@@ -4,6 +4,7 @@ import {Repos} from "./Repos";
 
 export interface Conducteur {
   CIN: string;
+  TYPE:string;
   Matricule :string;
   Nom: string;
   Prenom :string;
@@ -14,3 +15,4 @@ export interface Conducteur {
   voyage: Voyage[];
   reposList: Repos[];
 }
+
