@@ -12,15 +12,15 @@
     </ng-template>
 
   </ng-template>
-  <ng-container *ngIf="conducteur | async as listConducteurs; else failureOrLoading">
+  <ng-container *ngIf="permis | async as listPermis; else failureOrLoading">
     <div class="card ">
       <div *ngIf="errMessage">
         {{errMessage}}
       </div>
-      <div class="card-header bg-info"> Les conducteurs :</div>
+      <div class="card-header bg-info"> La liste des permis :</div>
       <div class="card-body">
-        <div *ngIf="searchConducteurFormGroup">
-          <form [formGroup]="searchConducteurFormGroup" (ngSubmit)="handelSearchConducteur()">
+        <div *ngIf="ListPermisFormGroup">
+          <form [formGroup]="ListPermisFormGroup" (ngSubmit)="handelListPermis()">
             <div class="input-group">
               <label class="input-group-text">Nom ou Prénom Conducteur:</label>
               <input type="text" formControlName="keyword" class="form-control">
@@ -36,31 +36,28 @@
         <table class="table">
           <thead>
           <tr>
-            <th >Matricule</th><th>Nom</th><th>Prenom</th> <th>CIN</th><th>Liste de types permis</th><th>Adresse</th><th>Date de naissance</th><th>Voyage</th><th>Supp</th><th>Mod</th>
+            <th >Matricule</th><th>Nom</th><th>Prenom</th> <th>CIN</th><th>Liste de types permis</th><th>Supp</th><th>Mod</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let c of conducteur |async ">
-            <td>{{c.Matricule}}</td>
-            <td>{{c.Nom}}</td>
-            <td>{{c.Prenom}}</td>
-            <td>{{c.CIN}}</td>
-            <td>{{c.permis.typePermisList}}</td>
-            <td>{{c.CIN}}</td>
-            <td>{{c.Date_Naissance | date:'yyyy-MM-dd'}}</td>
-            <td>{{c.voyage}}</td>
+          <tr *ngFor="let p of permis |async ">
+            <td>{{p.typePermisList}}</td>
+            <td>{{p.Date_Fin}}</td>
+            <td>{{p.Date_Fin}}</td>
+            <td>{{p.Lieu_Delivrance}}</td>
+            <td>{{p.Num_Permis}}</td>
             <td >
-              <button class="btn btn-danger" (click)="handledDeleteConducteur(c)">
+              <button class="btn btn-danger" (click)="handledDeletePermis(p)">
                 <i class="bi bi-trash" ></i>
               </button>
             </td>
             <td >
-              <button class="btn btn-primary" (click)="handelUpdateConducteur(c)">
+              <button class="btn btn-primary" (click)="handelUpdatePermis(p)">
                 <i class="bi-pen"></i>
               </button>
             </td>
             <td >
-              <button class="btn btn-info" (click)="handelVoyageConducteur(c)">
+              <button class="btn btn-info" (click)="handelVoyagePermis(p)">
                 Les voyages
               </button>
             </td>

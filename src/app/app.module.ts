@@ -6,20 +6,23 @@ import { AppComponent } from './app.component';
 import { ConducteurComponent } from './EnititeComponent/conducteur/conducteur.component';
 import { GestionnaireComponent } from './EnititeComponent/gestionnaire/gestionnaire.component';
 import { NavBarComponent } from './EnititeComponent/nav-bar/nav-bar.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { PermisComponent } from './EnititeComponent/permis/permis.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConducteurComponent,
     GestionnaireComponent,
-    NavBarComponent
+    NavBarComponent,
+    PermisComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
+        FormsModule ,
         ReactiveFormsModule
     ],
   providers: [],
