@@ -1,4 +1,4 @@
-{{permis |json}}
+
 <div class="container mt-2">
   <ng-template #failureOrLoading >
     <ng-container *ngIf="errMessage; else loading">
@@ -37,15 +37,15 @@
         <table class="table">
           <thead>
           <tr>
-            <th >Matricule</th><th>Nom</th><th>Prenom</th> <th>CIN</th><th>Liste de types permis</th><th>Supp</th><th>Mod</th>
+            <th >Numéro Permis</th><th>Date de délivrance</th><th>Date de fin</th> <th>Lieu de délivrance</th><th>Liste de types permis</th><th>Supp</th><th>Mod</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let p of permis |async ">
-            <td>{{p.Num_Permis}}</td>
-            <td>{{p.Date_Fin| date:'yyyy/MM/dd --- hh:mm'}}</td>
-            <td>{{p.Date_Fin| date:'yyyy/MM/dd --- hh:mm'}}</td>
-            <td>{{p.Lieu_Delivrance}}</td>
+            <td>{{p.num_Permis}}</td>
+            <td>{{p.date_Delivrance| date:'yyyy / MM / dd '}}</td>
+            <td>{{p.date_Fin| date:'yyyy / MM / dd '}}</td>
+            <td>{{p.lieu_Delivrance}}</td>
             <td>{{p.typePermisList}}</td>
             <td >
               <button class="btn btn-danger" (click)="handledDeletePermis(p)">

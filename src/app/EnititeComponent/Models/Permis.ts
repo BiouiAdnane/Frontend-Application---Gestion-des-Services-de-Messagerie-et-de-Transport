@@ -1,9 +1,9 @@
 export interface Permis {
+  num_Permis :string;
+  date_Delivrance: Date;
+  date_Fin: Date;
+  lieu_Delivrance: string;
   typePermisList:string[];
-  Date_Fin: Date;
-  Date_Delivrance: Date;
-  Num_Permis :string;
-  Lieu_Delivrance: string;
 
 
 }
