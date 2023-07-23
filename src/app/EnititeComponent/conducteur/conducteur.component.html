@@ -36,19 +36,18 @@
         <table class="table">
           <thead>
           <tr>
-            <th >Matricule</th><th>Nom</th><th>Prenom</th> <th>CIN</th><th>Liste de types permis</th><th>Adresse</th><th>Date de naissance</th><th>Voyage</th><th>Supp</th><th>Mod</th>
+            <th >Matricule</th><th>Nom</th><th>Prenom</th> <th>CIN</th><th>Liste de types permis</th><th>Adresse</th><th>Date de naissance</th><th>Supp</th><th>Mod</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let c of conducteur |async ">
-            <td>{{c.Matricule}}</td>
-            <td>{{c.Nom}}</td>
-            <td>{{c.Prenom}}</td>
-            <td>{{c.CIN}}</td>
+            <td>{{c.matricule}}</td>
+            <td>{{c.nom}}</td>
+            <td>{{c.prenom}}</td>
+            <td>{{c.cin}}</td>
             <td>{{c.permis.typePermisList}}</td>
-            <td>{{c.CIN}}</td>
-            <td>{{c.Date_Naissance | date:'yyyy-MM-dd'}}</td>
-            <td>{{c.voyage}}</td>
+            <td>{{c.adresse}}</td>
+            <td>{{c.date_Naissance | date:'yyyy-MM-dd'}}</td>
             <td >
               <button class="btn btn-danger" (click)="handledDeleteConducteur(c)">
                 <i class="bi bi-trash" ></i>

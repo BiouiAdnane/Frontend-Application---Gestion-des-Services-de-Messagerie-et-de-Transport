@@ -19,6 +19,7 @@ export class PermisComponent implements OnInit{
   ngOnInit(): void {
 
     this.handelListPermis()
+
   }
 
   constructor(private permisService :PermisService, private fb : FormBuilder, private router:Router) {
