@@ -9,6 +9,7 @@ import { NavBarComponent } from './EnititeComponent/nav-bar/nav-bar.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { PermisComponent } from './EnititeComponent/permis/permis.component';
+import { NewPermisComponent } from './NewEntities/new-permis/new-permis.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PermisComponent } from './EnititeComponent/permis/permis.component';
     ConducteurComponent,
     GestionnaireComponent,
     NavBarComponent,
-    PermisComponent
+    PermisComponent,
+    NewPermisComponent
   ],
     imports: [
         BrowserModule,

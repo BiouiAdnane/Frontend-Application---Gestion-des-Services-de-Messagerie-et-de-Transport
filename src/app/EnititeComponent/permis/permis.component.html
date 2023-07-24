@@ -18,7 +18,11 @@
       <div *ngIf="errMessage">
         {{errMessage}}
       </div>
-      <div class="card-header bg-info"> La liste des permis :</div>
+      <div class="card-header bg-info"> La liste des permis :
+        <button routerLink="/NewPermis" class="btn btn-warning ms-5">
+          <div> Nouveau Permis</div>
+        </button>
+      </div>
       <div class="card-body">
         <div *ngIf="ListPermisFormGroup">
           <form [formGroup]="ListPermisFormGroup" (ngSubmit)="handelListPermis()">
@@ -28,9 +32,7 @@
               <button class="btn btn-success">
                 <div class="bi bi-search">Chercher</div>
               </button>
-              <button routerLink="/new-depot" class="btn btn-warning ms-5">
-                <div> Nouveau Conducteur</div>
-              </button>
+
             </div>
           </form>
         </div>

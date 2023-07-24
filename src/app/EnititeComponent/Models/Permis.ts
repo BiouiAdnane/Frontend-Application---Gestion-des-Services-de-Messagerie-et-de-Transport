@@ -1,3 +1,5 @@
+import {Conducteur} from "./Conducteur";
+
 export interface Permis {
   num_Permis :string;
   date_Delivrance: Date;

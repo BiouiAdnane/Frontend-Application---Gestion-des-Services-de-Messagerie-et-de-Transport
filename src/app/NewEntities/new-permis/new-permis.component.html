@@ -1,0 +1,35 @@
+<div class="pvc-card">
+  <div class="header">
+    <img src="path/to/photo.jpg" alt="Photo d'identité">
+    <h2>nom prenom</h2>
+  </div>
+  <div class="details">
+    <div class="detail-row">
+      <p class="label">Numéro de permis :</p>
+      <p class="value">{{ permis.num_Permis }}</p>
+    </div>
+    <div class="detail-row">
+      <p class="label">Date de naissance :</p>
+      <p class="value">{{ permis.date_Delivrance | date:'dd/MM/yyyy' }}</p>
+    </div>
+    <div class="detail-row">
+      <p class="label">Date de délivrance :</p>
+      <p class="value">{{ permis.date_Delivrance | date:'dd/MM/yyyy' }}</p>
+    </div>
+    <div class="detail-row">
+      <p class="label">Date d'expiration :</p>
+      <p class="value">{{ permis.date_Fin | date:'dd/MM/yyyy' }}</p>
+    </div>
+    <div class="detail-row">
+      <p class="label">Lieu de délivrance :</p>
+      <p class="value">{{ permis.lieu_Delivrance }}</p>
+    </div>
+    <div class="detail-row">
+      <p class="label">Type de permis :</p>
+      <ul class="type-permis">
+        <li *ngFor="let typePermis of permis.typePermisList">{{ typePermis }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
