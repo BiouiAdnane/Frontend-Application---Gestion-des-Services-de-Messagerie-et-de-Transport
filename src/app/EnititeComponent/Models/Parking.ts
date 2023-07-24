@@ -1,11 +1,11 @@
 import {Voiture} from "./Voiture";
 
 export interface Parking {
-  NumParking:number;
-  Ville:string;
-  Adresse:string;
-  NombreMax:number;
-  NombreActuel:number;
+  numParking:number;
+  ville:string;
+  adresse:string;
+  nombreMax:number;
+  nombreActuel:number;
   voiture:Voiture[];
 
 }

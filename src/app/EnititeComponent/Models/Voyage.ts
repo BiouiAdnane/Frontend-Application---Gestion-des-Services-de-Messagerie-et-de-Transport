@@ -2,13 +2,13 @@ import {Conducteur} from "./Conducteur";
 import {Voiture} from "./Voiture";
 
 export interface Voyage {
-  CodeVoyage:number;
-  Ville_Depart:string;
-  Ville_Arrive:string;
-  Date_Debut:Date;
-  Date_Fin:Date;
-  Nombre_Voyageur:number;
-  Type_Voyage:TypeVoyage;
+  codeVoyage:number;
+  ville_Depart:string;
+  ville_Arrive:string;
+  date_Debut:Date;
+  date_Fin:Date;
+  nombre_Voyageur:number;
+  type_Voyage:TypeVoyage;
   conducteur:Conducteur;
   voiture:Voiture;
 }
