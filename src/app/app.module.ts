@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { PermisComponent } from './EnititeComponent/permis/permis.component';
 import { NewPermisComponent } from './NewEntities/new-permis/new-permis.component';
+import { UpdatePermisComponent } from './UpdateEntities/update-permis/update-permis.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NewPermisComponent } from './NewEntities/new-permis/new-permis.componen
     GestionnaireComponent,
     NavBarComponent,
     PermisComponent,
-    NewPermisComponent
+    NewPermisComponent,
+    UpdatePermisComponent
   ],
     imports: [
         BrowserModule,
