@@ -1,40 +1,86 @@
-<div class="container">
-  <div class="card col col-md-6">
-    <div class="card-header bg-black text-white">
-      Les informations du conducteur : <strong class="text-right-with-space">{{ conducteur?.nom }} {{ conducteur?.prenom }}</strong>
+<div class="container mt-2">
+  <div class="row">
+    <div class="col col-md-6">
+      <div class="card m-lg-5" >
+        <div class="card-header bg-black text-white">
+          Les informations du conducteur : <strong class="text-right-with-space">{{ conducteur?.nom }} {{ conducteur?.prenom }}</strong>
+        </div>
+        <div class="card-body">
+
+          <div class="mb-3">
+            <label class="form-label">Num carte nationale: <strong class="text-right-with-space">{{ conducteur?.cin }}</strong></label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Matricule :<strong class="text-right-with-space">{{ conducteur?.matricule }}</strong></label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label d">Nom :<strong class="text-right-with-space">{{ conducteur?.nom }}</strong></label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Prénom :<strong class="text-right-with-space">{{ conducteur?.prenom }}</strong></label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Adresse :<strong class="text-right-with-space">{{ conducteur?.adresse }}</strong></label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Date de naissance :<strong class="text-right-with-space">{{ conducteur?.date_Naissance }}</strong></label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Numéro de téléphone :<strong class="text-right-with-space">{{ conducteur?.numTel }}</strong></label>
+          </div>
+
+        </div>
+      </div>
     </div>
-    <div class="card-body">
 
-      <div class="mb-3">
-        <label class="form-label">Num carte nationale: <strong class="text-right-with-space">{{ conducteur?.cin }}</strong></label>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Matricule :<strong class="text-right-with-space">{{ conducteur?.matricule }}</strong></label>
-      </div>
-      <div class="mb-3">
-        <label class="form-label d">Nom :<strong class="text-right-with-space">{{ conducteur?.nom }}</strong></label>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Prénom :<strong class="text-right-with-space">{{ conducteur?.prenom }}</strong></label>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Adresse :<strong class="text-right-with-space">{{ conducteur?.adresse }}</strong></label>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Date de naissance :<strong class="text-right-with-space">{{ conducteur?.date_Naissance }}</strong></label>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Numéro de téléphone :<strong class="text-right-with-space">{{ conducteur?.numTel }}</strong></label>
-      </div>
 
-    </div>
-  </div>
+    <div class="col col-md-6">
+      <div class="card1">
+        <div class="card-header bg-black text-white">Informations du permis de conduire</div>
+        <div class="pvc-card offset-2 mt-2">
+            <div class="header">
+              <h2>nom prenom</h2>
+            </div>
+            <div class="details bg-dark-subtle">
+              <div class="detail-row">
+                <p class="label">Numéro de permis :</p>
+                <p class="value">{{ conducteur.permis.num_Permis }}</p>
+              </div>
+              <div class="detail-row">
+                <p class="label">Date de naissance :</p>
+                <p class="value">{{ permis.date_Delivrance | date:'dd/MM/yyyy' }}</p>
+              </div>
+              <div class="detail-row">
+                <p class="label">Date de délivrance :</p>
+                <p class="value">{{ permis.date_Delivrance | date:'dd/MM/yyyy' }}</p>
+              </div>
+              <div class="detail-row">
+                <p class="label">Date d'expiration :</p>
+                <p class="value">{{ permis.date_Fin | date:'dd/MM/yyyy' }}</p>
+              </div>
+              <div class="detail-row">
+                <p class="label">Lieu de délivrance :</p>
+                <p class="value">{{ permis.lieu_Delivrance }}</p>
+              </div>
+              <div class="detail-row">
+                <p class="label">Type de permis :</p>
+                <ul class="type-permis">
+                  <li *ngFor="let typePermis of conducteur.permis.typePermisList">{{ typePermis }}</li>
+                </ul>
+              </div>
+            </div>
 
-  <div class="permisCard">
-    <div class="col col-md-5 offset-7">
-      <div class="table-primary">
-        <div class="card-header bg-success text-white">Informations complémentaires</div>
-        <!-- Ajoutez ici des informations complémentaires si nécessaire -->
+        </div>
+
+        <div class="pvc-card offset-2 mt-2">
+          <div class="header">
+
+          </div>
+          <div class="details">
+
+          </div>
+
+        </div>
       </div>
     </div>
   </div>

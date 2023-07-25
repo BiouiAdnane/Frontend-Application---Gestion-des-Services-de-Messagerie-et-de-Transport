@@ -1,3 +1,6 @@
+.permisCard{
+  margin-bottom: -600px;
+}
 .pvc-card {
   width: 450px;
   height: 290px !important;
@@ -15,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding:1px;
   background-color: #007bff;
   color: #fff;
 }
@@ -37,7 +40,7 @@
 .detail-row {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .label {
@@ -47,17 +50,18 @@
 }
 
 .value {
-  flex: 2;
-  margin: 0;
+  flex: 0;
+  margin-right: 120px;
 }
 
 
 /* Style pour la card */
-.card {
-  border: none;
+.card1 {
+  border: 1px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  padding-bottom: 20px !important;
+
 }
 
 /* Style pour l'en-tête de la card */
