@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="card col-md-8 offset-2 mt-4">
+    <div class="card-header">Modification d'un conducteur</div>
+    <div class="card-body">
+      <form *ngIf="form" [formGroup]="updateConducteurFormGroup" (ngSubmit)="handleUpdateConducteur()" >
+
+        <div class="mb-3">
+          <label class="form-label">Num carte nationale:</label>
+          <input type="text" formControlName="cin" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Matricule :</label>
+          <input type="text" formControlName="matricule" class="form-control" readonly>
+        </div>
+        <div class="mb-3">
+          <label class="form-label d">Nom :</label>
+          <input type="text" formControlName="nom" class="form-control disabled" readonly>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Prenom :</label>
+          <input type="text" formControlName="prenom" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Adresse :</label>
+          <input type="text" formControlName="adresse" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Date de naissance :</label>
+          <input type="date" formControlName="date_Naissance" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Numéro de Tel:</label>
+          <input type="text" formControlName="numTel" class="form-control">
+        </div>
+
+        <div class="d-grid col-md-6 offset-3">
+          <button class="btn btn-info ">Enregistrer</button></div>
+      </form>
+    </div>
+  </div>
+</div>

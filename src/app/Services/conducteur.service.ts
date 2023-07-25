@@ -14,4 +14,12 @@ export class ConducteurService {
   public searchConducteur(keyword : String):Observable<Array<Conducteur>>{
     return this.http.get<Array<Conducteur>>(this.backendHost+"/conducteurs/search?keyword="+keyword)
   }
+
+  public getConducteur(cin : string):Observable<Conducteur>{
+    return this.http.get<Conducteur>(this.backendHost+"/conducteurs/"+ cin)
+  }
+
+  public saveConducteur(conducteur : Conducteur){
+    return this.http.post(this.backendHost + "/conducteurs" ,conducteur)
+  }
 }
