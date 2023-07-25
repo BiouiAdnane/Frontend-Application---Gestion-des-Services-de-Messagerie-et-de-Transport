@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card col-md-8 offset-2 mt-4">
+  <div class="card col col-md-6 ">
     <div class="card-header">Modification d'un conducteur</div>
     <div class="card-body">
       <form *ngIf="form" [formGroup]="updateConducteurFormGroup" (ngSubmit)="handleUpdateConducteur()" >
@@ -36,6 +36,12 @@
         <div class="d-grid col-md-6 offset-3">
           <button class="btn btn-info ">Enregistrer</button></div>
       </form>
+    </div>
+  </div>
+
+  <div class="col col-md-6 offset-6" >
+    <div class="table-primary">
+      <div class="card-header"> </div>
     </div>
   </div>
 </div>

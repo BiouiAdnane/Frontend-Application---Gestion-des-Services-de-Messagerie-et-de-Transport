@@ -12,6 +12,7 @@ import { PermisComponent } from './EnititeComponent/permis/permis.component';
 import { NewPermisComponent } from './NewEntities/new-permis/new-permis.component';
 import { UpdatePermisComponent } from './UpdateEntities/update-permis/update-permis.component';
 import { UpdateConducteurComponent } from './UpdateEntities/update-conducteur/update-conducteur.component';
+import { VisualiserConducteurComponent } from './EnititeComponent/visualiser-conducteur/visualiser-conducteur.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UpdateConducteurComponent } from './UpdateEntities/update-conducteur/up
     PermisComponent,
     NewPermisComponent,
     UpdatePermisComponent,
-    UpdateConducteurComponent
+    UpdateConducteurComponent,
+    VisualiserConducteurComponent
   ],
     imports: [
         BrowserModule,

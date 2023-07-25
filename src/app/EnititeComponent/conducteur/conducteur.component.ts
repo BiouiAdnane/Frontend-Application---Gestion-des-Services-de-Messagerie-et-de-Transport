@@ -48,4 +48,8 @@ export class ConducteurComponent implements OnInit{
   handledDeleteConducteur(c: Conducteur) {
 
   }
+
+  handledVisualiserConducteur(c: Conducteur) {
+    this.router.navigateByUrl("/visualiserConducteur/"+c.cin)
+  }
 }
