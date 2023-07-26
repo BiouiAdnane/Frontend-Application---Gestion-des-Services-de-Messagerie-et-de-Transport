@@ -8,7 +8,7 @@
         <div class="card-body">
 
           <div class="mb-3">
-            <label class="form-label">Num carte nationale: <strong class="text-right-with-space">{{ conducteur?.cin }}</strong></label>
+            <label class="form-label">Num carte nationale: <strong class="text-center">{{ conducteur?.cin }}</strong></label>
           </div>
           <div class="mb-3">
             <label class="form-label">Matricule :<strong class="text-right-with-space">{{ conducteur?.matricule }}</strong></label>
@@ -38,22 +38,25 @@
       <div class="card1 bg-light border-2">
         <div class="card-header bg-black text-white text-center">Informations du permis de conduire</div>
         <div class="pvc-card offset-2 mt-2 ">
-            <div class="header bg-dark-subtle text-black">
-              <h2 class="nomPrenom">{{conducteur.nom}} {{conducteur.prenom}}</h2>
+            <div class="card-header bg-dark-subtle text-black text-center">
+              <h4>{{conducteur.nom}} {{conducteur.prenom}}</h4>
             </div>
             <div class="details">
               <div class="detail-row">
                 <p class="label">Numéro de permis :</p>
                 <p class="value"><strong>{{ conducteur.permis?.num_Permis }}</strong></p>
               </div>
+
               <div class="detail-row">
                 <p class="label">Date de délivrance :</p>
                 <p class="value"><strong>{{ conducteur.permis?.date_Delivrance | date:'dd/MM/yyyy' }}</strong></p>
               </div>
+
               <div class="detail-row">
                 <p class="label">Date d'expiration :</p>
                 <p class="value"><strong>{{ conducteur.permis?.date_Fin | date:'dd/MM/yyyy' }}</strong></p>
               </div>
+
               <div class="detail-row">
                 <p class="label">Lieu de délivrance :</p>
                 <p class="value"><strong>{{ conducteur.permis?.lieu_Delivrance }}</strong></p>
@@ -64,15 +67,15 @@
 
         <div class="pvc-card offset-2 mt-2">
           <div class="row">
-            <div class="header text-right-with-space">
-              Les catégories
+            <div class="card-header text-center bg-dark-subtle text-black">
+              <h4>Les catégories du permis</h4>
             </div>
             <div class="col col-md-6">
 
-              <div class="table-container mt-4 offset-3">
+              <div class="table-container mt-2 offset-3">
                 <table >
                   <thead>
-                  <td class="border-2 p-2 text-center">catégories</td>
+                  <td class="border-2 p-2 text-center">Catégories</td>
                   <td class="border-2  p-2 text-center">Délivré</td>
                   </thead>
                   <tbody class="border-2 ">
@@ -102,9 +105,9 @@
             </div>
             <div class="col col-md-6">
               <div class="table-container ">
-                <table class="mt-4">
+                <table class="mt-2">
                   <thead>
-                  <td class="border-2  p-2 text-center">catégories</td>
+                  <td class="border-2  p-2 text-center">Catégories</td>
                   <td class="border-2  p-2 text-center">Délivré</td>
                   </thead>
                   <tbody class="border-2">

@@ -52,8 +52,7 @@
 
 
 .value {
-  flex: 0;
-  margin-right: 50px;
+  flex: 1;
   font-size: 22px;
   color: #007bff;
 }
@@ -87,6 +86,7 @@
 .form-label {
   font-weight: bold;
   color: #333;
+
 }
 
 /* Style pour les informations en gras */
@@ -105,4 +105,11 @@
   text-align: right ;
   padding-left: 20px; /* Espace à gauche (ajustez selon vos préférences) */
 }
+
+.details .detail-row:not(:last-child) {
+  border-bottom: 1px solid #ddd; /* Couleur de la ligne de séparation */
+  margin-top: 6px; /* Espace entre les divs */
+  margin-bottom: 0px; /* Espace entre les divs */
+}
+
 

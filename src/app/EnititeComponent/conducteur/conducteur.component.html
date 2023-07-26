@@ -17,17 +17,17 @@
       <div *ngIf="errMessage">
         {{errMessage}}
       </div>
-      <div class="card-header bg-info"> Les conducteurs :</div>
+      <div class="card-header bg-dark text-white"> <h4>La liste des conducteurs :</h4></div>
       <div class="card-body">
         <div *ngIf="searchConducteurFormGroup">
           <form [formGroup]="searchConducteurFormGroup" (ngSubmit)="handelSearchConducteur()">
             <div class="input-group">
-              <label class="input-group-text">Nom ou Prénom Conducteur:</label>
+              <label class="input-group-text bg-dark text-white">Nom ou Prénom Conducteur:</label>
               <input type="text" formControlName="keyword" class="form-control">
-              <button class="btn btn-success">
+              <button class="btn bg-dark-subtle">
                 <div class="bi bi-search">Chercher</div>
               </button>
-              <button routerLink="/new-depot" class="btn btn-warning ms-5">
+              <button routerLink="/new-depot" class="btn bg-dark text-white ms-5">
                 <div> Nouveau Conducteur</div>
               </button>
             </div>
@@ -41,15 +41,15 @@
           </thead>
           <tbody>
           <tr *ngFor="let c of conducteur |async ">
-            <td>{{c.matricule}}</td>
+            <td class="text-center">{{c.matricule}}</td>
             <td>{{c.nom}}</td>
             <td>{{c.prenom}}</td>
             <td>{{c.cin}}</td>
-            <td>{{c.permis.typePermisList}}</td>
+            <td class="text-center">{{c.permis.typePermisList}}</td>
             <td>{{c.adresse}}</td>
             <td>{{c.date_Naissance | date:'yyyy-MM-dd'}}</td>
             <td >
-              <button class="btn btn-success" (click)="handledVisualiserConducteur(c)">
+              <button class="btn bg-info text-white" (click)="handledVisualiserConducteur(c)">
                 <i class="bi bi-eye" ></i>
               </button>
             </td>
