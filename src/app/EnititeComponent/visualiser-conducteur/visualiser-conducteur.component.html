@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col col-md-6">
       <div class="card m-lg-5 bg-light" >
-        <div class="card-header bg-black text-white">
+        <div class="card-header bg-black text-white text-center">
           Les informations du conducteur : <strong class="text-right-with-space">{{ conducteur?.nom }} {{ conducteur?.prenom }}</strong>
         </div>
         <div class="card-body">
@@ -35,74 +35,102 @@
 
 
     <div class="col col-md-6">
-      <div class="card1 bg-dark-subtle">
-        <div class="card-header bg-black text-white">Informations du permis de conduire</div>
-        <div class="pvc-card offset-2 mt-2">
-            <div class="header">
-              <h2>nom prenom</h2>
+      <div class="card1 bg-light border-2">
+        <div class="card-header bg-black text-white text-center">Informations du permis de conduire</div>
+        <div class="pvc-card offset-2 mt-2 ">
+            <div class="header bg-dark-subtle text-black">
+              <h2 class="text-center">{{conducteur.nom}} {{conducteur.prenom}}</h2>
             </div>
             <div class="details">
               <div class="detail-row">
                 <p class="label">Numéro de permis :</p>
-                <p class="value">{{ conducteur.permis.num_Permis }}</p>
-              </div>
-              <div class="detail-row">
-                <p class="label">Date de naissance :</p>
-                <p class="value">{{ permis.date_Delivrance | date:'dd/MM/yyyy' }}</p>
+                <p class="value">{{ conducteur.permis?.num_Permis }}</p>
               </div>
               <div class="detail-row">
                 <p class="label">Date de délivrance :</p>
-                <p class="value">{{ permis.date_Delivrance | date:'dd/MM/yyyy' }}</p>
+                <p class="value">{{ conducteur.permis?.date_Delivrance | date:'dd/MM/yyyy' }}</p>
               </div>
               <div class="detail-row">
                 <p class="label">Date d'expiration :</p>
-                <p class="value">{{ permis.date_Fin | date:'dd/MM/yyyy' }}</p>
+                <p class="value">{{ conducteur.permis?.date_Fin | date:'dd/MM/yyyy' }}</p>
               </div>
               <div class="detail-row">
                 <p class="label">Lieu de délivrance :</p>
-                <p class="value">{{ permis.lieu_Delivrance }}</p>
-              </div>
-              <div class="detail-row">
-                <p class="label">Type de permis :</p>
-
+                <p class="value">{{ conducteur.permis?.lieu_Delivrance }}</p>
               </div>
             </div>
 
         </div>
 
         <div class="pvc-card offset-2 mt-2">
-          <div class="header">
-            Les catégories
+          <div class="row">
+            <div class="header text-right-with-space">
+              Les catégories
+            </div>
+            <div class="col col-md-6">
+
+              <div class="table-container mt-4 offset-3">
+                <table >
+                  <thead>
+                  <td class="border-2 p-2 text-center">catégories</td>
+                  <td class="border-2  p-2 text-center">Délivré</td>
+                  </thead>
+                  <tbody class="border-2 ">
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">AM <img src="assets/AM.png" height="20px"></h6></td>
+                    <td class="text-center">{{ conducteur.permis.typePermisList.includes('AM') ? '✔' : '***' }}</td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">A1 <img src="assets/A1.png" height="20px"></h6></td>
+                    <td class="text-center">{{ conducteur.permis.typePermisList.includes('A1') ? '✔' : '***' }}</td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">A <img src="assets/A.png" height="20px"></h6></td>
+                    <td class="text-center">{{ conducteur.permis.typePermisList.includes('A') ? '✔' : '***' }}</td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">B <img src="assets/B.png" height="25px"></h6></td>
+                    <td class="text-center">{{ conducteur.permis.typePermisList.includes('B') ? '✔' : '***' }}</td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">C <img src="assets/C.png" height="25px"></h6></td>
+                    <td class="text-center">{{ conducteur.permis.typePermisList.includes('C') ? '✔' : '***' }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col col-md-6">
+              <div class="table-container ">
+                <table class="mt-4">
+                  <thead>
+                  <td class="border-2  p-2 text-center">catégories</td>
+                  <td class="border-2  p-2 text-center">Délivré</td>
+                  </thead>
+                  <tbody class="border-2">
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">D <img src="assets/D.png" height="25px"></h6></td>
+                    <td class="text-center">{{ conducteur.permis.typePermisList.includes('D') ? '✔' : '***' }}</td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">EB <img src="assets/EB.png" height="35px"></h6></td>
+                    <td class="text-center">{{ conducteur.permis.typePermisList.includes('EB') ? '✔' : '***' }}</td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">EC <img src="assets/EC.png" height="38px"></h6></td>
+                    <td class="text-center">{{ conducteur.permis.typePermisList.includes('EC') ? '✔' : '***' }}</td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">ED <img src="assets/E.png" height="20px"><img src="assets/D.png" height="25px"></h6></td>
+                    <td class="text-center">{{ conducteur.permis.typePermisList.includes('ED') ? '✔' : '***' }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-          <div class="table-container">
-            <table>
-              <thead>
-              <td class="border-2">catégories</td>
-              <td class="border-2">Délivré</td>
-              </thead>
-              <tbody class="border-2">
-              <tr><h6>AM <img src="assets/AM.png" height="20px"></h6></tr>
-              <tr><h6>A1 <img src="assets/A1.png" height="20px"></h6></tr>
-              <tr><h6>A <img src="assets/A.png" height="20px"></h6></tr>
-              <tr><h6>B <img src="assets/B.png" height="20px"></h6></tr>
-              <tr><h6>C <img src="assets/C.png" height="20px"></h6></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="table-container">
-            <table>
-              <thead>
-              <td class="border-2">catégories</td>
-              <td class="border-2">Délivré</td>
-              </thead>
-              <tbody class="border-2">
-              <tr><h6>D <img src="assets/D.png" height="20px"></h6></tr>
-              <tr><h6>EB <img src="assets/EB.png" height="20px"></h6></tr>
-              <tr><h6>EC <img src="assets/EC.png" height="20px"></h6></tr>
-              <tr><h6>ED <img src="assets/E.png" height="20px"><img src="assets/D.png" height="20px"></h6></tr>
-              </tbody>
-            </table>
-          </div>
+
+
         </div>
       </div>
     </div>
