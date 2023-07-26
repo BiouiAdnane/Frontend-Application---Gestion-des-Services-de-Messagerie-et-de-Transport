@@ -102,3 +102,6 @@
   padding-left: 20px; /* Espace à gauche (ajustez selon vos préférences) */
 }
 
+.table-container {
+  display: flex;
+}
