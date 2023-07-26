@@ -49,10 +49,13 @@
   font-size: large;
 }
 
+
+
 .value {
   flex: 0;
-  margin-right: 120px;
-  font-size: 18px;
+  margin-right: 50px;
+  font-size: 22px;
+  color: #007bff;
 }
 
 

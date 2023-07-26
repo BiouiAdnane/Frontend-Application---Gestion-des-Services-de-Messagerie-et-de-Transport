@@ -39,24 +39,24 @@
         <div class="card-header bg-black text-white text-center">Informations du permis de conduire</div>
         <div class="pvc-card offset-2 mt-2 ">
             <div class="header bg-dark-subtle text-black">
-              <h2 class="text-center">{{conducteur.nom}} {{conducteur.prenom}}</h2>
+              <h2 class="nomPrenom">{{conducteur.nom}} {{conducteur.prenom}}</h2>
             </div>
             <div class="details">
               <div class="detail-row">
                 <p class="label">Numéro de permis :</p>
-                <p class="value">{{ conducteur.permis?.num_Permis }}</p>
+                <p class="value"><strong>{{ conducteur.permis?.num_Permis }}</strong></p>
               </div>
               <div class="detail-row">
                 <p class="label">Date de délivrance :</p>
-                <p class="value">{{ conducteur.permis?.date_Delivrance | date:'dd/MM/yyyy' }}</p>
+                <p class="value"><strong>{{ conducteur.permis?.date_Delivrance | date:'dd/MM/yyyy' }}</strong></p>
               </div>
               <div class="detail-row">
                 <p class="label">Date d'expiration :</p>
-                <p class="value">{{ conducteur.permis?.date_Fin | date:'dd/MM/yyyy' }}</p>
+                <p class="value"><strong>{{ conducteur.permis?.date_Fin | date:'dd/MM/yyyy' }}</strong></p>
               </div>
               <div class="detail-row">
                 <p class="label">Lieu de délivrance :</p>
-                <p class="value">{{ conducteur.permis?.lieu_Delivrance }}</p>
+                <p class="value"><strong>{{ conducteur.permis?.lieu_Delivrance }}</strong></p>
               </div>
             </div>
 
