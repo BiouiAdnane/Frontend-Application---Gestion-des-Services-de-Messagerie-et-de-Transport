@@ -19,6 +19,10 @@ export class ConducteurService {
     return this.http.get<Conducteur>(this.backendHost+"/conducteurs/"+ cin)
   }
 
+  public getConducteurByPermis(num_Permis : string):Observable<Conducteur>{
+    return this.http.get<Conducteur>(this.backendHost+"/conducteurPermis/"+ num_Permis)
+  }
+
   public saveConducteur(conducteur : Conducteur){
     return this.http.post(this.backendHost + "/conducteurs" ,conducteur)
   }

@@ -1,1 +1,147 @@
-<p>update-permis works!</p>
+<div class="container mt-2">
+  <div class="row">
+    <div class="col col-md-6">
+      <div class="card m-lg-5 bg-light" >
+        <div class="card-header bg-black text-white text-center">
+          Les informations du conducteur : <strong class="text-right-with-space">{{ conducteur?.nom }} {{ conducteur?.prenom }}</strong>
+        </div>
+        <div class="card-body">
+
+
+          <div class="mb-3">
+            <label class="form-label">Num carte nationale: <strong class="text-center">{{ conducteur?.cin }}</strong></label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Matricule :<strong class="text-right-with-space">{{ conducteur?.matricule }}</strong></label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label d">Nom :<strong class="text-right-with-space">{{ conducteur?.nom }}</strong></label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Prénom :<strong class="text-right-with-space">{{ conducteur?.prenom }}</strong></label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Adresse :<strong class="text-right-with-space">{{ conducteur?.adresse }}</strong></label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Date de naissance :<strong class="text-right-with-space">{{ conducteur?.date_Naissance }}</strong></label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Numéro de téléphone :<strong class="text-right-with-space">{{ conducteur?.numTel }}</strong></label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col col-md-6">
+      <form *ngIf="form" [formGroup]="updatePermisFormGroup" (ngSubmit)="handelUpdatePermis()" >
+      <div class="card1 bg-light border-2">
+        <div class="card-header bg-black text-white text-center">Informations du permis de conduire</div>
+        <div class="pvc-card offset-2 mt-2 ">
+
+          <div class="card-header bg-dark-subtle text-black text-center">
+            <h4>{{conducteur.nom}} {{conducteur.prenom}}</h4>
+          </div>
+          <div class="details">
+            <div class="detail-row">
+              <p class="label ">Numéro de permis :</p>
+              <input type="text" formControlName="num_Permis" class="form-control value text-center bg-light mb-1" readonly>
+            </div>
+
+            <div class="detail-row">
+              <p class="label">Date de délivrance :</p>
+              <input type="date" formControlName="date_Delivrance" class="form-control value text-center  bg-light mb-1" >
+            </div>
+
+            <div class="detail-row">
+              <p class="label">Date d'expiration :</p>
+              <input type="date" formControlName="date_Fin" class="form-control value text-center bg-light mb-1" >
+            </div>
+
+            <div class="detail-row">
+              <p class="label">Lieu de délivrance :</p>
+              <input type="text" formControlName="lieu_Delivrance" class="form-control value text-center bg-light mb-1" >
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pvc-card offset-2 mt-2">
+           <div class="row">
+             <div class="card-header text-center bg-dark-subtle text-black">
+               <h4>Les catégories du permis</h4>
+             </div>
+             <div class="col col-md-6">
+
+               <div class="table-container mt-2 offset-3">
+                 <table >
+                   <thead>
+                   <td class="border-2 p-2 text-center">Catégories</td>
+                   <td class="border-2  p-2 text-center">Délivré</td>
+                   </thead>
+                   <tbody class="border-2 ">
+                   <tr class="border-2">
+                     <td class="border-2"><h6 class="text-center">AM <img src="assets/AM.png" height="20px"></h6></td>
+
+                     <td><input class="form-check-input ms-3" [(ngModel)]="selectedType" type="radio" formControlName="typePermisList"></td>
+                   </tr>
+                   <tr class="border-2">
+                     <td class="border-2"><h6 class="text-center">A1 <img src="assets/A1.png" height="20px"></h6></td>
+                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('A1') ? '✔' : '***' }}</td>
+                   </tr>
+                   <tr class="border-2">
+                     <td class="border-2"><h6 class="text-center">A <img src="assets/A.png" height="20px"></h6></td>
+                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('A') ? '✔' : '***' }}</td>
+                   </tr>
+                   <tr class="border-2">
+                     <td class="border-2"><h6 class="text-center">B <img src="assets/B.png" height="25px"></h6></td>
+                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('B') ? '✔' : '***' }}</td>
+                   </tr>
+                   <tr class="border-2">
+                     <td class="border-2"><h6 class="text-center">C <img src="assets/C.png" height="25px"></h6></td>
+                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('C') ? '✔' : '***' }}</td>
+                   </tr>
+                   </tbody>
+                 </table>
+               </div>
+             </div>
+             <div class="col col-md-6">
+               <div class="table-container ">
+                 <table class="mt-2">
+                   <thead>
+                   <td class="border-2  p-2 text-center">Catégories</td>
+                   <td class="border-2  p-2 text-center">Délivré</td>
+                   </thead>
+                   <tbody class="border-2">
+                   <tr class="border-2">
+                     <td class="border-2"><h6 class="text-center">D <img src="assets/D.png" height="25px"></h6></td>
+                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('D') ? '✔' : '***' }}</td>
+                   </tr>
+                   <tr class="border-2">
+                     <td class="border-2"><h6 class="text-center">EB <img src="assets/EB.png" height="35px"></h6></td>
+                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('EB') ? '✔' : '***' }}</td>
+                   </tr>
+                   <tr class="border-2">
+                     <td class="border-2"><h6 class="text-center">EC <img src="assets/EC.png" height="38px"></h6></td>
+                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('EC') ? '✔' : '***' }}</td>
+                   </tr>
+                   <tr class="border-2">
+                     <td class="border-2"><h6 class="text-center">ED <img src="assets/E.png" height="20px"><img src="assets/D.png" height="25px"></h6></td>
+                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('ED') ? '✔' : '***' }}</td>
+                   </tr>
+                   </tbody>
+                 </table>
+               </div>
+             </div>
+           </div>
+
+
+         </div>
+       </div>
+      </form>
+     </div>
+  </div>
+
+</div>

@@ -15,4 +15,13 @@ export class PermisService {
   public listPermis():Observable<Array<Permis>>{
     return this.http.get<Array<Permis>>(this.backendHost+"/permis")
   }
+
+  public savePermis(permis : Permis){
+    return this.http.post(this.backendHost + "/permis" ,permis)
+  }
+
+  public getPermis(num_Permis : string):Observable<Permis>{
+    return this.http.get<Permis>(this.backendHost+"/permis/"+ num_Permis)
+  }
+
 }

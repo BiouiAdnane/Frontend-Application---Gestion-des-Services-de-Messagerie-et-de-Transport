@@ -1,4 +1,4 @@
-
+/* --------------------------------------------------------INFORMATIONS DU PERMIS ---------------------------------------- */
 .pvc-card {
   width: 450px;
   height: 290px !important;
@@ -62,7 +62,7 @@
   margin-top: 6px; /* Espace entre les divs */
   margin-bottom: 0px; /* Espace entre les divs */
 }
-
+/* --------------------------------------------------------INFORMATIONS DU CONDUCTEUR ---------------------------------------- */
 
 /* Style pour la card */
 .card1 {

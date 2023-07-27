@@ -40,4 +40,7 @@ export class VisualiserConducteurComponent implements OnInit{
   handelUpdateConducteur(c: Conducteur) {
     this.router.navigateByUrl("/updateConducteur/"+c.cin)
   }
+  handelUpdatePermis(p: Permis) {
+    this.router.navigateByUrl("/updatePermis/"+p.num_Permis)
+  }
 }

@@ -9,7 +9,7 @@
             <div class="mb-4 mt-4 row">
               <label class="form-label col-md-4 ">Num carte nationale:</label>
               <div class="col-md-6">
-                <input type="text" formControlName="cin" class="form-control text-center bg-light">
+                <input type="text" formControlName="cin" class="form-control text-center bg-light " readonly>
               </div>
             </div>
             <div class="mb-4 row">
@@ -72,7 +72,7 @@
           <div class="details">
             <div class="detail-row">
               <p class="label">Numéro de permis :</p>
-              <p class="value"><strong>{{ conducteur.permis?.num_Permis }}</strong></p>
+              <p class="value " ><strong>{{ conducteur.permis?.num_Permis }}</strong></p>
             </div>
 
             <div class="detail-row">
