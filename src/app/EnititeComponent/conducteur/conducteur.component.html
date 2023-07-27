@@ -36,7 +36,7 @@
         <table class="table">
           <thead>
           <tr>
-            <th >Matricule</th><th>Nom</th><th>Prenom</th> <th>CIN</th><th>Liste de types permis</th><th>Adresse</th><th>Date de naissance</th><th>Visualiser</th><th>Supp</th><th>Mod</th><th>Voyage</th>
+            <th >Matricule</th><th>Nom</th><th>Prenom</th> <th>CIN</th><th>Liste de types permis</th><th>Adresse</th><th>Date de naissance</th><th>Visualiser</th><th>Supp</th><th>Voyage</th>
           </tr>
           </thead>
           <tbody>
@@ -53,16 +53,12 @@
                 <i class="bi bi-eye" ></i>
               </button>
             </td>
-            <td >
+            <td>
               <button class="btn btn-danger" (click)="handledDeleteConducteur(c)">
                 <i class="bi bi-trash" ></i>
               </button>
             </td>
-            <td >
-              <button class="btn btn-primary" (click)="handelUpdateConducteur(c)">
-                <i class="bi-pen"></i>
-              </button>
-            </td>
+
             <td >
               <button class="btn btn-info" (click)="handelVoyageConducteur(c)">
                 <i class="bi-car-front"></i>

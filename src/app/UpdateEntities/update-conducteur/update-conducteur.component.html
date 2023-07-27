@@ -1,47 +1,68 @@
 <div class="container">
-  <div class="card col col-md-6 ">
-    <div class="card-header">Modification d'un conducteur</div>
+  <div class="card col col-md-6 mt-4">
+    <div class="card-header bg-dark text-white text-center ">Modification des données du conducteur :<strong>{{conducteur.prenom}}  {{conducteur.nom}}</strong></div>
     <div class="card-body">
       <form *ngIf="form" [formGroup]="updateConducteurFormGroup" (ngSubmit)="handleUpdateConducteur()" >
 
-        <div class="mb-3">
-          <label class="form-label">Num carte nationale:</label>
-          <input type="text" formControlName="cin" class="form-control">
+        <div class="mb-4 mt-4 row">
+          <label class="form-label col-md-4 ">Num carte nationale:</label>
+          <div class="col-md-6">
+            <input type="text" formControlName="cin" class="form-control text-center bg-light">
+          </div>
         </div>
-        <div class="mb-3">
-          <label class="form-label">Matricule :</label>
-          <input type="text" formControlName="matricule" class="form-control" readonly>
+        <div class="mb-4 row">
+          <label class="form-label col-md-4">Matricule :</label>
+          <div class="col-md-6">
+            <input type="text" formControlName="matricule" class="form-control text-center bg-light" >
+          </div>
         </div>
-        <div class="mb-3">
-          <label class="form-label d">Nom :</label>
-          <input type="text" formControlName="nom" class="form-control disabled" readonly>
+        <div class="mb-4 row">
+          <label class="form-label col-md-4">Nom :</label>
+          <div class="col-md-6">
+            <input type="text" formControlName="nom" class="form-control text-center bg-light" >
+          </div>
+
         </div>
-        <div class="mb-3">
-          <label class="form-label">Prenom :</label>
-          <input type="text" formControlName="prenom" class="form-control">
+        <div class="mb-4 row">
+          <label class="form-label col-md-4">Prenom :</label>
+          <div class="col-md-6">
+            <input type="text" formControlName="prenom" class="form-control text-center bg-light">
+          </div>
+
         </div>
-        <div class="mb-3">
-          <label class="form-label">Adresse :</label>
-          <input type="text" formControlName="adresse" class="form-control">
+        <div class="mb-4 row">
+          <label class="form-label col-md-4">Adresse :</label>
+          <div class="col-md-6">
+            <input type="text" formControlName="adresse" class="form-control text-center bg-light">
+          </div>
+
         </div>
-        <div class="mb-3">
-          <label class="form-label">Date de naissance :</label>
-          <input type="date" formControlName="date_Naissance" class="form-control">
+        <div class="mb-4 row">
+          <label class="form-label col-md-4">Date de naissance :</label>
+          <div class="col-md-6">
+            <input type="date" formControlName="date_Naissance" class="form-control text-center bg-light">
+          </div>
+
         </div>
-        <div class="mb-3">
-          <label class="form-label">Numéro de Tel:</label>
-          <input type="text" formControlName="numTel" class="form-control">
+        <div class="mb-4 row">
+          <label class="form-label col-md-4">Numéro de Tel:</label>
+          <div class="col-md-6">
+            <input type="text" formControlName="numTel" class="form-control text-center bg-light">
+          </div>
+
         </div>
 
         <div class="d-grid col-md-6 offset-3">
-          <button class="btn btn-info ">Enregistrer</button></div>
+          <button class="btn btn-dark mt-3 ">Enregistrer</button></div>
       </form>
     </div>
   </div>
 
   <div class="col col-md-6 offset-6" >
     <div class="table-primary">
-      <div class="card-header"> </div>
+      <div class="card-header">
+
+      </div>
     </div>
   </div>
 </div>

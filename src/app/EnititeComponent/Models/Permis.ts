@@ -6,6 +6,4 @@ export interface Permis {
   date_Fin: Date;
   lieu_Delivrance: string;
   typePermisList:string[];
-
-
 }

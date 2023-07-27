@@ -44,6 +44,7 @@ export class UpdateConducteurComponent  implements OnInit{
           adresse:this.fb.control(this.conducteur.adresse),
           date_Naissance: this.fb.control(this.conducteur.date_Naissance),
           numTel: this.fb.control(this.conducteur.numTel),
+
         })
       },
       error : (err)=> {
@@ -53,17 +54,29 @@ export class UpdateConducteurComponent  implements OnInit{
   }
 
   handleUpdateConducteur() {
-    let c= this.updateConducteurFormGroup.value;
-    c.cin=this.conducteur.cin;
+    let c = {
+      cin: this.updateConducteurFormGroup.get('cin')?.value,
+      matricule: this.updateConducteurFormGroup.get('matricule')?.value,
+      nom: this.updateConducteurFormGroup.get('nom')?.value,
+      prenom: this.updateConducteurFormGroup.get('prenom')?.value,
+      adresse: this.updateConducteurFormGroup.get('adresse')?.value,
+      date_Naissance: this.updateConducteurFormGroup.get('date_Naissance')?.value,
+      numTel: this.updateConducteurFormGroup.get('numTel')?.value,
+      permis: this.conducteur.permis,
+      voyage: this.conducteur.voyage,
+      reposList: this.conducteur.reposList
+    };
+
     this.conducteurService.saveConducteur(c).subscribe({
-      next : (data)=>{
-        alert("La modification est faite avec succée");
-        this.router.navigateByUrl("/conducteurs")
+      next: (data) => {
+        alert("La modification est faite avec succès");
+        this.router.navigateByUrl("/visualiserConducteur/"+this.cin);
       },
-      error:err => {
+      error: err => {
         console.log(err);
       }
-    })
+    });
   }
+
 }
 

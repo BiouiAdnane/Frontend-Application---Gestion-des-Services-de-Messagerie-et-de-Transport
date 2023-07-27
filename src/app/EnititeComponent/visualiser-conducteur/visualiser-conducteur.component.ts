@@ -36,4 +36,8 @@ export class VisualiserConducteurComponent implements OnInit{
     })
   }
 
+
+  handelUpdateConducteur(c: Conducteur) {
+    this.router.navigateByUrl("/updateConducteur/"+c.cin)
+  }
 }
