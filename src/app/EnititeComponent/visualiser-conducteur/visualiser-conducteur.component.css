@@ -57,6 +57,12 @@
   color: #007bff;
 }
 
+.details .detail-row:not(:last-child) {
+  border-bottom: 1px solid #ddd; /* Couleur de la ligne de séparation */
+  margin-top: 6px; /* Espace entre les divs */
+  margin-bottom: 0px; /* Espace entre les divs */
+}
+
 
 /* Style pour la card */
 .card1 {
@@ -106,10 +112,6 @@
   padding-left: 20px; /* Espace à gauche (ajustez selon vos préférences) */
 }
 
-.details .detail-row:not(:last-child) {
-  border-bottom: 1px solid #ddd; /* Couleur de la ligne de séparation */
-  margin-top: 6px; /* Espace entre les divs */
-  margin-bottom: 0px; /* Espace entre les divs */
-}
+
 
 
