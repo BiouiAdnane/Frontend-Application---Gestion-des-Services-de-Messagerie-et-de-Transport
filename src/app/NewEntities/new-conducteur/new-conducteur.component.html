@@ -1,0 +1,167 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-md-6 mt-5">
+      <div class="card">
+        <div class="card-header bg-dark text-white text-center ">Les données du nouveau conducteur </div>
+        <div class="card-body">
+          <form  [formGroup]="newConducteurFormGroup" (ngSubmit)="handleSaveConducteur()" >
+
+            <div class="mb-4 mt-4 row">
+              <label class="form-label col-md-4 ">Num carte nationale:</label>
+              <div class="col-md-6">
+                <input type="text" formControlName="cin" class="form-control text-center bg-light " readonly>
+              </div>
+            </div>
+            <div class="mb-4 row">
+              <label class="form-label col-md-4">Matricule :</label>
+              <div class="col-md-6">
+                <input type="text" formControlName="matricule" class="form-control text-center bg-light" >
+              </div>
+            </div>
+            <div class="mb-4 row">
+              <label class="form-label col-md-4">Nom :</label>
+              <div class="col-md-6">
+                <input type="text" formControlName="nom" class="form-control text-center bg-light" >
+              </div>
+
+            </div>
+            <div class="mb-4 row">
+              <label class="form-label col-md-4">Prenom :</label>
+              <div class="col-md-6">
+                <input type="text" formControlName="prenom" class="form-control text-center bg-light">
+              </div>
+
+            </div>
+            <div class="mb-4 row">
+              <label class="form-label col-md-4">Adresse :</label>
+              <div class="col-md-6">
+                <input type="text" formControlName="adresse" class="form-control text-center bg-light">
+              </div>
+
+            </div>
+            <div class="mb-4 row">
+              <label class="form-label col-md-4">Date de naissance :</label>
+              <div class="col-md-6">
+                <input type="date" formControlName="date_Naissance" class="form-control text-center bg-light">
+              </div>
+
+            </div>
+            <div class="mb-4 row">
+              <label class="form-label col-md-4">Numéro de Tel:</label>
+              <div class="col-md-6">
+                <input type="text" formControlName="numTel" class="form-control text-center bg-light">
+              </div>
+
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col col-md-6  mt-2">
+      <div class="card1 bg-light border-2">
+        <div class="card-header bg-black text-white text-center">Informations du permis de conduire</div>
+        <div class="pvc-card offset-2 mt-2 ">
+
+          <div class="card-header bg-dark-subtle text-black text-center">
+            <h4>Bonjour</h4>
+          </div>
+          <div class="details">
+            <div class="detail-row">
+              <p class="label">Numéro de permis :</p>
+              <input type="text" formControlName="num_Permis" class="form-control value text-center bg-light mb-1" >
+            </div>
+
+            <div class="detail-row">
+              <p class="label">Date de délivrance :</p>
+              <input type="date" formControlName="date_Delivrance" class="form-control value text-center bg-light mb-1">
+            </div>
+
+            <div class="detail-row">
+              <p class="label">Date d'expiration :</p>
+              <input type="date" formControlName="date_Fin" class="form-control value text-center bg-light mb-1">
+            </div>
+
+            <div class="detail-row">
+              <p class="label">Lieu de délivrance :</p>
+              <input type="text" formControlName="lieu_Delivrance" class="form-control value text-center bg-light mb-1">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pvc-card offset-2 mt-2">
+          <div class="row">
+            <div class="card-header text-center bg-dark-subtle text-black">
+              <h4>Les catégories du permis</h4>
+            </div>
+            <div class="col col-md-6">
+              <div class="table-container mt-2 offset-3">
+                <table>
+                  <thead>
+                  <td class="border-2 p-2 text-center">Catégories</td>
+                  <td class="border-2 p-2 text-center">Délivré</td>
+                  </thead>
+                  <tbody class="border-2">
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">AM <img src="assets/AM.png" height="20px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="AM" type="checkbox" [formControl]="getFormControl('AM')" (change)="toggleCategory('AM')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">A1 <img src="assets/A1.png" height="20px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="A1" type="checkbox" [formControl]="getFormControl('A1')" (change)="toggleCategory('A1')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">A <img src="assets/A.png" height="20px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="A" type="checkbox" [formControl]="getFormControl('A')" (change)="toggleCategory('A')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">B <img src="assets/B.png" height="25px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="B" type="checkbox" [formControl]="getFormControl('B')" (change)="toggleCategory('B')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">C <img src="assets/C.png" height="25px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="C" type="checkbox" [formControl]="getFormControl('C')" (change)="toggleCategory('C')"></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col col-md-6">
+              <div class="table-container ">
+                <table class="mt-2">
+                  <thead>
+                  <td class="border-2 p-2 text-center">Catégories</td>
+                  <td class="border-2 p-2 text-center">Délivré</td>
+                  </thead>
+                  <tbody class="border-2">
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">D <img src="assets/D.png" height="25px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="D" type="checkbox" [formControl]="getFormControl('D')" (change)="toggleCategory('D')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">EB <img src="assets/EB.png" height="35px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="EB" type="checkbox" [formControl]="getFormControl('EB')" (change)="toggleCategory('EB')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">EC <img src="assets/EC.png" height="38px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="EC" type="checkbox" [formControl]="getFormControl('EC')" (change)="toggleCategory('EC')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">ED <img src="assets/E.png" height="20px"><img src="assets/D.png" height="25px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="ED" type="checkbox" [formControl]="getFormControl('ED')" (change)="toggleCategory('ED')"></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

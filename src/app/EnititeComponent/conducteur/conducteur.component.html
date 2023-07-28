@@ -27,8 +27,8 @@
               <button class="btn bg-dark-subtle">
                 <div class="bi bi-search">Chercher</div>
               </button>
-              <button routerLink="/new-depot" class="btn bg-dark text-white ms-5">
-                <div> Nouveau Conducteur</div>
+              <button routerLink="/newConducteur" class="btn bg-dark text-white ms-5">
+                <div> <i class="bi bi-person-add"></i>Nouveau Conducteur</div>
               </button>
             </div>
           </form>
@@ -48,8 +48,8 @@
             <td class="text-center">{{c.permis.typePermisList}}</td>
             <td>{{c.adresse}}</td>
             <td>{{c.date_Naissance | date:'yyyy-MM-dd'}}</td>
-            <td >
-              <button class="btn bg-info text-white" (click)="handledVisualiserConducteur(c)">
+            <td class="">
+              <button class="btn btn-success text-white" (click)="handledVisualiserConducteur(c)">
                 <i class="bi bi-eye" ></i>
               </button>
             </td>
@@ -60,7 +60,7 @@
             </td>
 
             <td >
-              <button class="btn btn-info" (click)="handelVoyageConducteur(c)">
+              <button class="btn btn-primary " (click)="handelVoyageConducteur(c)">
                 <i class="bi-car-front"></i>
               </button>
             </td>
