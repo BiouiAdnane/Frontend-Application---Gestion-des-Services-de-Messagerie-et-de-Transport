@@ -1,15 +1,16 @@
 <div class="container">
+  <form  [formGroup]="newConducteurFormGroup"  >
   <div class="row">
-    <div class="col col-md-6 mt-5">
+    <div class="col col-md-6 mt-2">
       <div class="card">
         <div class="card-header bg-dark text-white text-center ">Les données du nouveau conducteur </div>
         <div class="card-body">
-          <form  [formGroup]="newConducteurFormGroup" (ngSubmit)="handleSaveConducteur()" >
+
 
             <div class="mb-4 mt-4 row">
               <label class="form-label col-md-4 ">Num carte nationale:</label>
               <div class="col-md-6">
-                <input type="text" formControlName="cin" class="form-control text-center bg-light " readonly>
+                <input type="text" formControlName="cin" class="form-control text-center bg-light " >
               </div>
             </div>
             <div class="mb-4 row">
@@ -55,12 +56,15 @@
             </div>
 
 
-          </form>
+
         </div>
-      </div>
+
 
     </div>
-
+      <div class="d-grid col-md-6 offset-3">
+        <button (click)="handleSaveConducteur()" class="btn btn-dark mt-3">Enregistrer</button>
+      </div>
+    </div>
     <div class="col col-md-6  mt-2">
       <div class="card1 bg-light border-2">
         <div class="card-header bg-black text-white text-center">Informations du permis de conduire</div>
@@ -108,23 +112,23 @@
                   <tbody class="border-2">
                   <tr class="border-2">
                     <td class="border-2"><h6 class="text-center">AM <img src="assets/AM.png" height="20px"></h6></td>
-                    <td><input class="form-check-input ms-3" value="AM" type="checkbox" [formControl]="getFormControl('AM')" (change)="toggleCategory('AM')"></td>
+                    <td><input class="form-check-input ms-3" value="AM" type="checkbox" ></td>
                   </tr>
                   <tr class="border-2">
                     <td class="border-2"><h6 class="text-center">A1 <img src="assets/A1.png" height="20px"></h6></td>
-                    <td><input class="form-check-input ms-3" value="A1" type="checkbox" [formControl]="getFormControl('A1')" (change)="toggleCategory('A1')"></td>
+                    <td><input class="form-check-input ms-3" value="A1" type="checkbox"></td>
                   </tr>
                   <tr class="border-2">
                     <td class="border-2"><h6 class="text-center">A <img src="assets/A.png" height="20px"></h6></td>
-                    <td><input class="form-check-input ms-3" value="A" type="checkbox" [formControl]="getFormControl('A')" (change)="toggleCategory('A')"></td>
+                    <td><input class="form-check-input ms-3" value="A" type="checkbox" ></td>
                   </tr>
                   <tr class="border-2">
                     <td class="border-2"><h6 class="text-center">B <img src="assets/B.png" height="25px"></h6></td>
-                    <td><input class="form-check-input ms-3" value="B" type="checkbox" [formControl]="getFormControl('B')" (change)="toggleCategory('B')"></td>
+                    <td><input class="form-check-input ms-3" value="B" type="checkbox" ></td>
                   </tr>
                   <tr class="border-2">
                     <td class="border-2"><h6 class="text-center">C <img src="assets/C.png" height="25px"></h6></td>
-                    <td><input class="form-check-input ms-3" value="C" type="checkbox" [formControl]="getFormControl('C')" (change)="toggleCategory('C')"></td>
+                    <td><input class="form-check-input ms-3" value="C" type="checkbox"></td>
                   </tr>
                   </tbody>
                 </table>
@@ -140,19 +144,19 @@
                   <tbody class="border-2">
                   <tr class="border-2">
                     <td class="border-2"><h6 class="text-center">D <img src="assets/D.png" height="25px"></h6></td>
-                    <td><input class="form-check-input ms-3" value="D" type="checkbox" [formControl]="getFormControl('D')" (change)="toggleCategory('D')"></td>
+                    <td><input class="form-check-input ms-3" value="D" type="checkbox" ></td>
                   </tr>
                   <tr class="border-2">
                     <td class="border-2"><h6 class="text-center">EB <img src="assets/EB.png" height="35px"></h6></td>
-                    <td><input class="form-check-input ms-3" value="EB" type="checkbox" [formControl]="getFormControl('EB')" (change)="toggleCategory('EB')"></td>
+                    <td><input class="form-check-input ms-3" value="EB" type="checkbox" ></td>
                   </tr>
                   <tr class="border-2">
                     <td class="border-2"><h6 class="text-center">EC <img src="assets/EC.png" height="38px"></h6></td>
-                    <td><input class="form-check-input ms-3" value="EC" type="checkbox" [formControl]="getFormControl('EC')" (change)="toggleCategory('EC')"></td>
+                    <td><input class="form-check-input ms-3" value="EC" type="checkbox" ></td>
                   </tr>
                   <tr class="border-2">
                     <td class="border-2"><h6 class="text-center">ED <img src="assets/E.png" height="20px"><img src="assets/D.png" height="25px"></h6></td>
-                    <td><input class="form-check-input ms-3" value="ED" type="checkbox" [formControl]="getFormControl('ED')" (change)="toggleCategory('ED')"></td>
+                    <td><input class="form-check-input ms-3" value="ED" type="checkbox" ></td>
                   </tr>
                   </tbody>
                 </table>
@@ -160,8 +164,11 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
 
+      </div>
+
+    </div>
+
+  </div>
+  </form>
 </div>
