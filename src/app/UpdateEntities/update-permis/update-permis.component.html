@@ -36,7 +36,7 @@
 
 
     <div class="col col-md-6">
-      <form *ngIf="form" [formGroup]="updatePermisFormGroup" (ngSubmit)="handelUpdatePermis()" >
+      <form  [formGroup]="updatePermisFormGroup" (ngSubmit)="handelUpdatePermis()" >
       <div class="card1 bg-light border-2">
         <div class="card-header bg-black text-white text-center">Informations du permis de conduire</div>
         <div class="pvc-card offset-2 mt-2 ">
@@ -69,77 +69,76 @@
         </div>
 
         <div class="pvc-card offset-2 mt-2">
-           <div class="row">
-             <div class="card-header text-center bg-dark-subtle text-black">
-               <h4>Les catégories du permis</h4>
-             </div>
-             <div class="col col-md-6">
+          <div class="row">
+            <div class="card-header text-center bg-dark-subtle text-black">
+              <h4>Les catégories du permis</h4>
+            </div>
+            <div class="col col-md-6">
+              <div class="table-container mt-2 offset-3">
+                <table>
+                  <thead>
+                  <td class="border-2 p-2 text-center">Catégories</td>
+                  <td class="border-2  p-2 text-center">Délivré</td>
+                  </thead>
+                  <tbody class="border-2">
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">AM <img src="assets/AM.png" height="20px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="AM" type="checkbox" [formControl]="getFormControl('AM')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">A1 <img src="assets/A1.png" height="20px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="A1" type="checkbox" [formControl]="getFormControl('A1')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">A <img src="assets/A.png" height="20px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="A" type="checkbox" [formControl]="getFormControl('A')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">B <img src="assets/B.png" height="25px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="B" type="checkbox" [formControl]="getFormControl('B')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">C <img src="assets/C.png" height="25px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="C" type="checkbox" [formControl]="getFormControl('C')"></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col col-md-6">
+              <div class="table-container ">
+                <table class="mt-2">
+                  <thead>
+                  <td class="border-2  p-2 text-center">Catégories</td>
+                  <td class="border-2  p-2 text-center">Délivré</td>
+                  </thead>
+                  <tbody class="border-2">
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">D <img src="assets/D.png" height="25px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="D" type="checkbox" [formControl]="getFormControl('D')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">EB <img src="assets/EB.png" height="35px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="EB" type="checkbox" [formControl]="getFormControl('EB')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">EC <img src="assets/EC.png" height="38px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="EC" type="checkbox" [formControl]="getFormControl('EC')"></td>
+                  </tr>
+                  <tr class="border-2">
+                    <td class="border-2"><h6 class="text-center">ED <img src="assets/E.png" height="20px"><img src="assets/D.png" height="25px"></h6></td>
+                    <td><input class="form-check-input ms-3" value="ED" type="checkbox" [formControl]="getFormControl('ED')"></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
 
-               <div class="table-container mt-2 offset-3">
-                 <table >
-                   <thead>
-                   <td class="border-2 p-2 text-center">Catégories</td>
-                   <td class="border-2  p-2 text-center">Délivré</td>
-                   </thead>
-                   <tbody class="border-2 ">
-                   <tr class="border-2">
-                     <td class="border-2"><h6 class="text-center">AM <img src="assets/AM.png" height="20px"></h6></td>
-
-                     <td><input class="form-check-input ms-3" [(ngModel)]="selectedType" type="radio" formControlName="typePermisList"></td>
-                   </tr>
-                   <tr class="border-2">
-                     <td class="border-2"><h6 class="text-center">A1 <img src="assets/A1.png" height="20px"></h6></td>
-                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('A1') ? '✔' : '***' }}</td>
-                   </tr>
-                   <tr class="border-2">
-                     <td class="border-2"><h6 class="text-center">A <img src="assets/A.png" height="20px"></h6></td>
-                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('A') ? '✔' : '***' }}</td>
-                   </tr>
-                   <tr class="border-2">
-                     <td class="border-2"><h6 class="text-center">B <img src="assets/B.png" height="25px"></h6></td>
-                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('B') ? '✔' : '***' }}</td>
-                   </tr>
-                   <tr class="border-2">
-                     <td class="border-2"><h6 class="text-center">C <img src="assets/C.png" height="25px"></h6></td>
-                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('C') ? '✔' : '***' }}</td>
-                   </tr>
-                   </tbody>
-                 </table>
-               </div>
-             </div>
-             <div class="col col-md-6">
-               <div class="table-container ">
-                 <table class="mt-2">
-                   <thead>
-                   <td class="border-2  p-2 text-center">Catégories</td>
-                   <td class="border-2  p-2 text-center">Délivré</td>
-                   </thead>
-                   <tbody class="border-2">
-                   <tr class="border-2">
-                     <td class="border-2"><h6 class="text-center">D <img src="assets/D.png" height="25px"></h6></td>
-                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('D') ? '✔' : '***' }}</td>
-                   </tr>
-                   <tr class="border-2">
-                     <td class="border-2"><h6 class="text-center">EB <img src="assets/EB.png" height="35px"></h6></td>
-                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('EB') ? '✔' : '***' }}</td>
-                   </tr>
-                   <tr class="border-2">
-                     <td class="border-2"><h6 class="text-center">EC <img src="assets/EC.png" height="38px"></h6></td>
-                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('EC') ? '✔' : '***' }}</td>
-                   </tr>
-                   <tr class="border-2">
-                     <td class="border-2"><h6 class="text-center">ED <img src="assets/E.png" height="20px"><img src="assets/D.png" height="25px"></h6></td>
-                     <td class="text-center">{{ conducteur.permis.typePermisList.includes('ED') ? '✔' : '***' }}</td>
-                   </tr>
-                   </tbody>
-                 </table>
-               </div>
-             </div>
-           </div>
-
-
-         </div>
-       </div>
+      </div>
+        <div class="d-grid col-md-6 offset-3">
+          <button class="btn btn-dark mt-3 ">Enregistrer</button></div>
       </form>
      </div>
   </div>
