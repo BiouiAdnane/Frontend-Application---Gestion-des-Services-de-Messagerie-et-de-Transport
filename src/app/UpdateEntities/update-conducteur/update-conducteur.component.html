@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="conducteur">
   <div class="row">
     <div class="col col-md-6 mt-5">
       <div class="card">
@@ -72,22 +72,22 @@
           <div class="details">
             <div class="detail-row">
               <p class="label">Numéro de permis :</p>
-              <p class="value " ><strong>{{ conducteur.permis?.num_Permis }}</strong></p>
+              <p class="value " ><strong>{{ conducteur.permis.num_Permis }}</strong></p>
             </div>
 
             <div class="detail-row">
               <p class="label">Date de délivrance :</p>
-              <p class="value"><strong>{{ conducteur.permis?.date_Delivrance | date:'dd/MM/yyyy' }}</strong></p>
+              <p class="value"><strong>{{ conducteur.permis.date_Delivrance | date:'dd/MM/yyyy' }}</strong></p>
             </div>
 
             <div class="detail-row">
               <p class="label">Date d'expiration :</p>
-              <p class="value"><strong>{{ conducteur.permis?.date_Fin | date:'dd/MM/yyyy' }}</strong></p>
+              <p class="value"><strong>{{ conducteur.permis.date_Fin | date:'dd/MM/yyyy' }}</strong></p>
             </div>
 
             <div class="detail-row">
               <p class="label">Lieu de délivrance :</p>
-              <p class="value"><strong>{{ conducteur.permis?.lieu_Delivrance }}</strong></p>
+              <p class="value"><strong>{{ conducteur.permis.lieu_Delivrance }}</strong></p>
             </div>
           </div>
 

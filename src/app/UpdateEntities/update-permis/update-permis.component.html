@@ -1,48 +1,52 @@
-<div class="container mt-2">
+<div class="container mt-2" *ngIf="conducteur">
   <div class="row">
     <div class="col col-md-6">
       <div class="card m-lg-5 bg-light" >
         <div class="card-header bg-black text-white text-center">
-          Les informations du conducteur : <strong class="text-right-with-space">{{ conducteur?.nom }} {{ conducteur?.prenom }}</strong>
+          Les informations du conducteur : <strong class="text-right-with-space">{{ conducteur.nom }} {{ conducteur.prenom }}</strong>
         </div>
         <div class="card-body">
 
 
           <div class="mb-3">
-            <label class="form-label">Num carte nationale: <strong class="text-center">{{ conducteur?.cin }}</strong></label>
+            <label class="form-label">Num carte nationale: <strong class="text-center">{{ conducteur.cin }}</strong></label>
           </div>
           <div class="mb-3">
-            <label class="form-label">Matricule :<strong class="text-right-with-space">{{ conducteur?.matricule }}</strong></label>
+            <label class="form-label">Matricule :<strong class="text-right-with-space">{{ conducteur.matricule }}</strong></label>
           </div>
           <div class="mb-3">
-            <label class="form-label d">Nom :<strong class="text-right-with-space">{{ conducteur?.nom }}</strong></label>
+            <label class="form-label d">Nom :<strong class="text-right-with-space">{{ conducteur.nom }}</strong></label>
           </div>
           <div class="mb-3">
-            <label class="form-label">Prénom :<strong class="text-right-with-space">{{ conducteur?.prenom }}</strong></label>
+            <label class="form-label">Prénom :<strong class="text-right-with-space">{{ conducteur.prenom }}</strong></label>
           </div>
           <div class="mb-3">
-            <label class="form-label">Adresse :<strong class="text-right-with-space">{{ conducteur?.adresse }}</strong></label>
+            <label class="form-label">Adresse :<strong class="text-right-with-space">{{ conducteur.adresse }}</strong></label>
           </div>
           <div class="mb-3">
-            <label class="form-label">Date de naissance :<strong class="text-right-with-space">{{ conducteur?.date_Naissance }}</strong></label>
+            <label class="form-label">Date de naissance :<strong class="text-right-with-space">{{ conducteur.date_Naissance }}</strong></label>
           </div>
           <div class="mb-3">
-            <label class="form-label">Numéro de téléphone :<strong class="text-right-with-space">{{ conducteur?.numTel }}</strong></label>
+            <label class="form-label">Numéro de téléphone :<strong class="text-right-with-space">{{ conducteur.numTel }}</strong></label>
           </div>
 
         </div>
+
+      </div>
+      <div class="d-grid col-md-6 offset-3">
+        <button (click)="handelUpdatePermis()" class="btn btn-dark mt-3">Enregistrer</button>
       </div>
     </div>
 
 
     <div class="col col-md-6">
-      <form [formGroup]="updatePermisFormGroup" (ngSubmit)="handelUpdatePermis()">
+      <form [formGroup]="updatePermisFormGroup" >
         <div class="card1 bg-light border-2">
           <div class="card-header bg-black text-white text-center">Informations du permis de conduire</div>
           <div class="pvc-card offset-2 mt-2 ">
 
             <div class="card-header bg-dark-subtle text-black text-center">
-              <h4>{{ conducteur?.nom }} {{ conducteur?.prenom }}</h4>
+              <h4>{{ conducteur.nom }} {{ conducteur.prenom }}</h4>
             </div>
             <div class="details">
               <div class="detail-row">
@@ -137,9 +141,7 @@
           </div>
         </div>
 
-        <div class="d-grid col-md-6 offset-3">
-          <button class="btn btn-dark mt-3">Enregistrer</button>
-        </div>
+
       </form>
     </div>
 
