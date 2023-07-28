@@ -16,7 +16,7 @@ export class UpdatePermisComponent implements OnInit {
   conducteur!: Conducteur;
   permis!: Permis;
   updatePermisFormGroup!: FormGroup;
-  selectedType: string[] = [];
+  selectedCategories: string[] = [];
   validPermitTypes: string[] = ['AM', 'A1', 'A', 'B', 'C', 'D', 'EB', 'EC', 'ED'];
 
   constructor(
@@ -26,13 +26,19 @@ export class UpdatePermisComponent implements OnInit {
     private fb: FormBuilder,
     private permisService: PermisService
   ) {
-    this.permis = this.router.getCurrentNavigation()?.extras.state as Permis;
-    this.updatePermisFormGroup = new FormGroup({
-      num_Permis: new FormControl(),
-      date_Delivrance: new FormControl(),
-      date_Fin: new FormControl(),
-      lieu_Delivrance: new FormControl(),
-      // No need to provide formControl for typePermisList
+    this.updatePermisFormGroup = this.fb.group({
+      num_Permis: this.fb.control(''),
+      date_Delivrance: this.fb.control(''),
+      date_Fin: this.fb.control(''),
+      lieu_Delivrance: this.fb.control(''),
+    });
+
+    this.validPermitTypes.forEach((permitType) => {
+      this.updatePermisFormGroup.addControl(permitType, this.fb.control(false));
+    });
+
+    this.updatePermisFormGroup.get('typePermisList')?.valueChanges.subscribe((selectedType: string[]) => {
+      this.selectedCategories = selectedType;
     });
   }
 
@@ -41,22 +47,17 @@ export class UpdatePermisComponent implements OnInit {
     this.permisService.getPermis(this.numPermis).subscribe({
       next: (permis: Permis) => {
         this.permis = permis;
-        this.selectedType = this.permis.typePermisList;
-        this.updatePermisFormGroup = this.fb.group({
-          num_Permis: this.fb.control(this.permis.num_Permis),
-          date_Delivrance: this.fb.control(this.permis.date_Delivrance),
-          date_Fin: this.fb.control(this.permis.date_Fin),
-          lieu_Delivrance: this.fb.control(this.permis.lieu_Delivrance),
-          // No need to provide formControl for typePermisList
+        this.selectedCategories = this.permis.typePermisList;
+
+        this.updatePermisFormGroup.patchValue({
+          num_Permis: this.permis.num_Permis,
+          date_Delivrance: this.permis.date_Delivrance,
+          date_Fin: this.permis.date_Fin,
+          lieu_Delivrance: this.permis.lieu_Delivrance,
         });
 
-        // Loop through the permit types and add form controls dynamically
         this.validPermitTypes.forEach((permitType) => {
-          this.updatePermisFormGroup.addControl(permitType, this.fb.control(this.selectedType.includes(permitType)));
-        });
-
-        this.updatePermisFormGroup.get('typePermisList')?.valueChanges.subscribe((selectedType: string[]) => {
-          this.selectedType = selectedType;
+          this.updatePermisFormGroup.controls[permitType].setValue(this.selectedCategories.includes(permitType));
         });
       },
       error: (err) => {
@@ -74,7 +75,6 @@ export class UpdatePermisComponent implements OnInit {
     });
   }
 
-  // Function to get the form control for a specific permit type
   getFormControl(permitType: string): FormControl {
     return this.updatePermisFormGroup.get(permitType) as FormControl;
   }
@@ -89,18 +89,26 @@ export class UpdatePermisComponent implements OnInit {
     return null;
   }
 
+  isCategorySelected(category: string): boolean {
+    return this.selectedCategories.includes(category);
+  }
 
-  isPermitTypeChecked(permitType: string): boolean {
-    return this.selectedType.includes(permitType);
+  toggleCategory(category: string): void {
+    if (this.isCategorySelected(category)) {
+      this.selectedCategories = this.selectedCategories.filter((cat) => cat !== category);
+    } else {
+      this.selectedCategories.push(category);
+    }
   }
 
   handelUpdatePermis() {
     // Update the 'typePermisList' property of the 'permis' object with selected permit types
-    const excludeKeys = ['num_Permis', 'date_Delivrance', 'date_Fin', 'lieu_Delivrance'];
-    this.permis.typePermisList = Object.keys(this.updatePermisFormGroup.value)
-      .filter((key) => this.updatePermisFormGroup.controls[key].value && !excludeKeys.includes(key))
-      .map((key) => key);
+    this.permis.typePermisList = this.selectedCategories;
 
+    // Update the form values for date_Delivrance, date_Fin, and lieu_Delivrance
+    this.permis.date_Delivrance = this.updatePermisFormGroup.get('date_Delivrance')?.value;
+    this.permis.date_Fin = this.updatePermisFormGroup.get('date_Fin')?.value;
+    this.permis.lieu_Delivrance = this.updatePermisFormGroup.get('lieu_Delivrance')?.value;
 
     // Save the updated 'permis' object
     this.permisService.savePermis(this.permis).subscribe({
