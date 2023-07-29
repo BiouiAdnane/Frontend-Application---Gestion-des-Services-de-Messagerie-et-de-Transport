@@ -3,6 +3,7 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angul
 import {ConducteurService} from "../../Services/conducteur.service";
 import {Conducteur} from "../../EnititeComponent/Models/Conducteur";
 import {Router} from "@angular/router";
+import {Permis} from "../../EnititeComponent/Models/Permis";
 
 @Component({
   selector: 'app-new-conducteur',
@@ -31,10 +32,14 @@ export class NewConducteurComponent implements OnInit {
       date_Delivrance: [null],
       date_Fin: [null],
       lieu_Delivrance: [null],
-      typePermisList:['B','D'],
+      // Change typePermisList to a FormArray
+      typePermisList: this.fb.array([]),
     });
+  }
 
-
+  // Convenience getter to access the FormArray
+  get typePermisListArray() {
+    return this.newConducteurFormGroup.get('typePermisList') as FormArray;
   }
 
   handleSaveConducteur() {
@@ -43,11 +48,31 @@ export class NewConducteurComponent implements OnInit {
       return;
     }
 
-    const data: Conducteur = this.newConducteurFormGroup.value;
+    const selectedCategories = this.newConducteurFormGroup.get('typePermisList')?.value;
+    const permis: Permis = {
+      num_Permis: this.newConducteurFormGroup.get('num_Permis')?.value,
+      date_Delivrance: this.newConducteurFormGroup.get('date_Delivrance')?.value,
+      date_Fin: this.newConducteurFormGroup.get('date_Fin')?.value,
+      lieu_Delivrance: this.newConducteurFormGroup.get('lieu_Delivrance')?.value,
+      typePermisList: selectedCategories,
+    };
+
+    const data: Conducteur = {
+      cin: this.newConducteurFormGroup.get('cin')?.value,
+      matricule: this.newConducteurFormGroup.get('matricule')?.value,
+      nom: this.newConducteurFormGroup.get('nom')?.value,
+      prenom: this.newConducteurFormGroup.get('prenom')?.value,
+      adresse: this.newConducteurFormGroup.get('adresse')?.value,
+      date_Naissance: this.newConducteurFormGroup.get('date_Naissance')?.value,
+      numTel: this.newConducteurFormGroup.get('numTel')?.value,
+      permis: permis,
+      voyage: [],
+      reposList: [],
+    };
+
     this.conducteurService.saveConducteur(data).subscribe({
       next: (data) => {
-        let cond = data;
-        alert("L'enregistrement est fait par succès");
+        alert("L'enregistrement est fait avec succès");
         this.router.navigateByUrl('/Conducteurs');
       },
       error: (err) => {
