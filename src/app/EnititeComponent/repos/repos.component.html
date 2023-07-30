@@ -17,24 +17,18 @@
       <div *ngIf="errMessage">
         {{errMessage}}
       </div>
-      <div class="card-header bg-dark text-white"> <h4>La liste des différents repos :</h4></div>
+      <div class="card-header bg-dark text-white">
+        <h3>La liste des différents repos :</h3>
+      </div>
       <div class="card-body bg-light">
         <div *ngIf="searchReposFormGroup">
-          <form [formGroup]="searchReposFormGroup" (ngSubmit)="handelgetRepos()">
-            <div class="input-group">
-              <label class="input-group-text bg-dark text-white">Nom ou Prénom Conducteur:</label>
-              <input type="text" formControlName="keyword" class="form-control">
-              <button class="btn bg-dark-subtle">
-                <div class="bi bi-search">Chercher</div>
-              </button>
-              <button routerLink="/newConducteur" class="btn bg-dark text-white ms-5">
-                <div> <i class="bi bi-person-add me-2"></i>Nouveau Conducteur</div>
-              </button>
-            </div>
-          </form>
+          <div [formGroup]="searchReposFormGroup" (ngSubmit)="handelgetRepos()">
+            <button class="btn bg-dark-subtle justify-content offset-10 ">Ajouter un repos</button>
+          </div>
         </div>
         <table class="table ">
           <thead >
+          <div class="btn bg-dark-subtle mb-3 " (click)="handelNewRepos()">Ajouter un repos</div>
           <tr>
             <th >Code Repos</th><th>CIN</th><th>Nom</th><th>Prenom</th> <th>N° de telephone</th><th>Date début du repos</th><th>Date fin du repos</th><th>Supp</th>
           </tr>

@@ -52,6 +52,9 @@ export class ReposComponent implements OnInit{
 
 
   }
+  handelNewRepos(){
+    this.router.navigateByUrl('/newRepos')
+  }
 
   handledVisualiserConducteur(c: Conducteur) {
     this.router.navigateByUrl("/visualiserConducteur/"+c.cin)

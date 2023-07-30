@@ -15,6 +15,7 @@ import { UpdateConducteurComponent } from './UpdateEntities/update-conducteur/up
 import { VisualiserConducteurComponent } from './EnititeComponent/visualiser-conducteur/visualiser-conducteur.component';
 import { NewConducteurComponent } from './NewEntities/new-conducteur/new-conducteur.component';
 import { ReposComponent } from './EnititeComponent/repos/repos.component';
+import { NewReposComponent } from './NewEntities/new-repos/new-repos.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ReposComponent } from './EnititeComponent/repos/repos.component';
     UpdateConducteurComponent,
     VisualiserConducteurComponent,
     NewConducteurComponent,
-    ReposComponent
+    ReposComponent,
+    NewReposComponent
   ],
     imports: [
         BrowserModule,
