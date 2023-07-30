@@ -1,0 +1,65 @@
+<div class="container mt-2">
+  <ng-template #failureOrLoading >
+    <ng-container *ngIf="errMessage; else loading">
+      <div  class="text-danger">
+        {{errMessage}}
+      </div>
+    </ng-container>
+    <ng-template #loading >
+      <div class="text-center " id="loading">
+        <div class="spinner-border text-primary" style="width: 6rem; height: 6rem;" role="status">
+        </div></div>
+    </ng-template>
+
+  </ng-template>
+  <ng-container *ngIf="repos | async as listRepos; else failureOrLoading">
+    <div class="card ">
+      <div *ngIf="errMessage">
+        {{errMessage}}
+      </div>
+      <div class="card-header bg-dark text-white"> <h4>La liste des différents repos :</h4></div>
+      <div class="card-body bg-light">
+        <div *ngIf="searchReposFormGroup">
+          <form [formGroup]="searchReposFormGroup" (ngSubmit)="handelgetRepos()">
+            <div class="input-group">
+              <label class="input-group-text bg-dark text-white">Nom ou Prénom Conducteur:</label>
+              <input type="text" formControlName="keyword" class="form-control">
+              <button class="btn bg-dark-subtle">
+                <div class="bi bi-search">Chercher</div>
+              </button>
+              <button routerLink="/newConducteur" class="btn bg-dark text-white ms-5">
+                <div> <i class="bi bi-person-add me-2"></i>Nouveau Conducteur</div>
+              </button>
+            </div>
+          </form>
+        </div>
+        <table class="table ">
+          <thead >
+          <tr>
+            <th >Code Repos</th><th>CIN</th><th>Nom</th><th>Prenom</th> <th>N° de telephone</th><th>Date début du repos</th><th>Date fin du repos</th><th>Supp</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let r of repos |async ">
+            <td >{{r.code_Repos}}</td>
+            <td>{{r.conducteur.cin}}</td>
+            <td>{{r.conducteur.nom}}</td>
+            <td>{{r.conducteur.prenom}}</td>
+            <td >{{r.conducteur.numTel}}</td>
+            <td>{{r.date_Debut| date:'dd / MM / yyyy'}}</td>
+            <td>{{r.date_Fin | date:'dd / MM / yyyy'}}</td>
+
+            <td>
+              <button class="btn btn-danger" (click)="handledDeleteRepos(r)">
+                <i class="bi bi-trash" ></i>
+              </button>
+            </td>
+
+          </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -7,12 +7,15 @@ import {UpdateConducteurComponent} from "./UpdateEntities/update-conducteur/upda
 import {VisualiserConducteurComponent} from "./EnititeComponent/visualiser-conducteur/visualiser-conducteur.component";
 import {UpdatePermisComponent} from "./UpdateEntities/update-permis/update-permis.component";
 import {NewConducteurComponent} from "./NewEntities/new-conducteur/new-conducteur.component";
+import {ReposComponent} from "./EnititeComponent/repos/repos.component";
 
 const routes: Routes = [
   {path :"Conducteurs", component: ConducteurComponent},
   {path:"updateConducteur/:cin", component: UpdateConducteurComponent},
   {path:"visualiserConducteur/:cin",component: VisualiserConducteurComponent},
   {path:"newConducteur",component: NewConducteurComponent},
+
+  {path :"Repos", component: ReposComponent},
 
 
   {path:"Permis", component: PermisComponent},
