@@ -16,24 +16,31 @@ export class NewConducteurComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private conducteurService: ConducteurService
+    private conducteurService: ConducteurService // Replace with the actual ConducteurService instance
   ) {}
 
   ngOnInit(): void {
     this.newConducteurFormGroup = this.fb.group({
-      cin: [null, [Validators.required, Validators.minLength(3)]],
-      matricule: [null, [Validators.required, Validators.minLength(3)]],
-      nom: [null, [Validators.required]],
+      cin: [null],
+      matricule: [null],
+      nom: [null],
       prenom: [null],
       adresse: [null],
-      date_Naissance: [null, [Validators.required]],
+      date_Naissance: [null],
       numTel: [null],
       num_Permis: [null],
       date_Delivrance: [null],
       date_Fin: [null],
       lieu_Delivrance: [null],
-      // Change typePermisList to a FormArray
-      typePermisList: this.fb.array([]),
+      category_AM: [false],
+      category_A1: [false],
+      category_A: [false],
+      category_B: [false],
+      category_C: [false],
+      category_D: [false],
+      category_EB: [false],
+      category_EC: [false],
+      category_ED: [false],
     });
   }
 
@@ -48,36 +55,66 @@ export class NewConducteurComponent implements OnInit {
       return;
     }
 
-    const selectedCategories = this.newConducteurFormGroup.get('typePermisList')?.value;
-    const permis: Permis = {
-      num_Permis: this.newConducteurFormGroup.get('num_Permis')?.value,
-      date_Delivrance: this.newConducteurFormGroup.get('date_Delivrance')?.value,
-      date_Fin: this.newConducteurFormGroup.get('date_Fin')?.value,
-      lieu_Delivrance: this.newConducteurFormGroup.get('lieu_Delivrance')?.value,
-      typePermisList: selectedCategories,
-    };
+    const selectedCategories: string[] = [];
+    if (this.newConducteurFormGroup.get('category_AM')?.value) {
+      selectedCategories.push('AM');
+    }
+    if (this.newConducteurFormGroup.get('category_A1')?.value) {
+      selectedCategories.push('A1');
+    }
 
-    const data: Conducteur = {
-      cin: this.newConducteurFormGroup.get('cin')?.value,
-      matricule: this.newConducteurFormGroup.get('matricule')?.value,
-      nom: this.newConducteurFormGroup.get('nom')?.value,
-      prenom: this.newConducteurFormGroup.get('prenom')?.value,
-      adresse: this.newConducteurFormGroup.get('adresse')?.value,
-      date_Naissance: this.newConducteurFormGroup.get('date_Naissance')?.value,
-      numTel: this.newConducteurFormGroup.get('numTel')?.value,
-      permis: permis,
-      voyage: [],
-      reposList: [],
-    };
+    if (this.newConducteurFormGroup.get('category_A')?.value) {
+      selectedCategories.push('A');
+    }
+    if (this.newConducteurFormGroup.get('category_B')?.value) {
+      selectedCategories.push('B');
+    }
+    if (this.newConducteurFormGroup.get('category_C')?.value) {
+      selectedCategories.push('C');
+    }
+    if (this.newConducteurFormGroup.get('category_D')?.value) {
+      selectedCategories.push('D');
+    }
+    if (this.newConducteurFormGroup.get('category_EB')?.value) {
+      selectedCategories.push('EB');
+    }
+    if (this.newConducteurFormGroup.get('category_EC')?.value) {
+      selectedCategories.push('EC');
+    }
+    if (this.newConducteurFormGroup.get('category_ED')?.value) {
+      selectedCategories.push('ED');
+    }
 
-    this.conducteurService.saveConducteur(data).subscribe({
-      next: (data) => {
-        alert("L'enregistrement est fait avec succès");
-        this.router.navigateByUrl('/Conducteurs');
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-  }
+      const permis: Permis = {
+        num_Permis: this.newConducteurFormGroup.get('num_Permis')?.value,
+        date_Delivrance: this.newConducteurFormGroup.get('date_Delivrance')?.value,
+        date_Fin: this.newConducteurFormGroup.get('date_Fin')?.value,
+        lieu_Delivrance: this.newConducteurFormGroup.get('lieu_Delivrance')?.value,
+        typePermisList: selectedCategories,
+      };
+
+      const data: Conducteur = {
+        cin: this.newConducteurFormGroup.get('cin')?.value,
+        matricule: this.newConducteurFormGroup.get('matricule')?.value,
+        nom: this.newConducteurFormGroup.get('nom')?.value,
+        prenom: this.newConducteurFormGroup.get('prenom')?.value,
+        adresse: this.newConducteurFormGroup.get('adresse')?.value,
+        date_Naissance: this.newConducteurFormGroup.get('date_Naissance')?.value,
+        numTel: this.newConducteurFormGroup.get('numTel')?.value,
+        permis: permis,
+        voyage: [],
+        reposList: [],
+      };
+
+      this.conducteurService.saveConducteur(data).subscribe({
+        next: (data) => {
+          alert("L'enregistrement est fait avec succès");
+          this.router.navigateByUrl('/Conducteurs');
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
+
 }
