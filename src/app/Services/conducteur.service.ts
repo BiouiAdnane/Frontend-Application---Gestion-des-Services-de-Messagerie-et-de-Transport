@@ -26,4 +26,7 @@ export class ConducteurService {
   public saveConducteur(conducteur : Conducteur){
     return this.http.post(this.backendHost + "/conducteurs" ,conducteur)
   }
+  public deleteConducteur(cin : string){
+    return this.http.delete(this.backendHost+"/conducteurs/"+cin)
+  }
 }

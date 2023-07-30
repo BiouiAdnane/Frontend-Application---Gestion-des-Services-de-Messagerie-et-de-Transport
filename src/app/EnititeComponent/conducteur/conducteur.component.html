@@ -18,7 +18,7 @@
         {{errMessage}}
       </div>
       <div class="card-header bg-dark text-white"> <h4>La liste des conducteurs :</h4></div>
-      <div class="card-body">
+      <div class="card-body bg-light">
         <div *ngIf="searchConducteurFormGroup">
           <form [formGroup]="searchConducteurFormGroup" (ngSubmit)="handelSearchConducteur()">
             <div class="input-group">
@@ -33,10 +33,10 @@
             </div>
           </form>
         </div>
-        <table class="table">
-          <thead>
+        <table class="table ">
+          <thead >
           <tr>
-            <th >Matricule</th><th>Nom</th><th>Prenom</th> <th>CIN</th><th>Liste de types permis</th><th>Adresse</th><th>Date de naissance</th><th>Visualiser</th><th>Supp</th><th>Voyage</th>
+            <th >Matricule</th><th>Nom</th><th>Prenom</th> <th>CIN</th><th>Les catégories du permis</th><th>Adresse</th><th>Date de naissance</th><th>Visualiser</th><th>Supp</th><th>Voyage</th>
           </tr>
           </thead>
           <tbody>

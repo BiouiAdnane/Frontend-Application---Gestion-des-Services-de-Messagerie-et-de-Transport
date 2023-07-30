@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {catchError, Observable, tap, throwError} from "rxjs";
+import {catchError, map, Observable, tap, throwError} from "rxjs";
 import {Conducteur} from "../Models/Conducteur";
 import {ConducteurService} from "../../Services/conducteur.service";
 import {Router} from "@angular/router";
@@ -44,6 +44,21 @@ export class ConducteurComponent implements OnInit{
 
 
   handledDeleteConducteur(c: Conducteur) {
+      let conf=confirm("Voulez vous supprimer ce conducteur ?")
+      if (!conf) return;
+      this.conducteurService.deleteConducteur(c.cin).subscribe({
+        next:(data)=>{
+          this.conducteur=this.conducteur.pipe(
+            map(data=>{
+              let index=data.indexOf(c);
+              data.slice(index, 1);
+              return data;
+            })
+          )
+        }, error:err => {
+          console.log(err)       }
+      })
+
 
   }
 
