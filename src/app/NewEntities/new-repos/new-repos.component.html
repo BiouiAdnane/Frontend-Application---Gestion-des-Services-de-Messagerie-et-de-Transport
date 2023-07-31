@@ -1,1 +1,32 @@
-<p>new-repos works!</p>
+<div class="container">
+  <div class="card col-md-8 offset-2 mt-4">
+    <div class="card-header">Nouveau Repos</div>
+    <div class="card-body">
+      <form [formGroup]="newReposFormGroup" (ngSubmit)="handleSaveRepos()" method="post">
+
+        <div class="mb-3">
+          <label class="form-label">Date début du repos:</label>
+          <input type="date" formControlName="date_Debut" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Date fin du repos:</label>
+          <input type="date" formControlName="date_Fin" class="form-control">
+        </div>
+
+        <!-- Modified part: Conducteur dropdown -->
+        <div class="mb-3">
+          <label class="form-label">Le conducteur:</label>
+          <select formControlName="conducteur" class="form-control">
+            <option *ngFor="let conducteur of conducteurs" [value]="conducteur.cin">
+              {{ conducteur.nom }} {{ conducteur.prenom }}
+            </option>
+          </select>
+        </div>
+
+        <div class="d-grid col-md-6 offset-3">
+          <button class="btn btn-info">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
