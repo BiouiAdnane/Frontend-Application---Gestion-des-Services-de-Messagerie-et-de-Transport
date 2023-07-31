@@ -1,16 +1,25 @@
 <div class="container">
-  <div class="card col-md-8 offset-2 mt-4">
-    <div class="card-header">Nouveau Repos</div>
+  <div class="card col-md-6  mt-4">
+    <div class="card-header bg-dark text-white"><h3>Nouveau Repos</h3></div>
     <div class="card-body">
       <form [formGroup]="newReposFormGroup" (ngSubmit)="handleSaveRepos()" method="post">
 
-        <div class="mb-3">
+        <div class="mb-3 ">
           <label class="form-label">Date début du repos:</label>
           <input type="date" formControlName="date_Debut" class="form-control">
         </div>
         <div class="mb-3">
           <label class="form-label">Date fin du repos:</label>
           <input type="date" formControlName="date_Fin" class="form-control">
+        </div>
+
+        <div class="bg-danger-subtle text-danger border-5 rounded-4">
+          <h2 class="ms-3 pt-1">
+            Attention !!!
+          </h2>
+          <h4 class="ms-2 pb-3">
+            Il faut compter le premier et le dérnier jour dans les jours du repos.
+          </h4>
         </div>
 
         <!-- Modified part: Conducteur dropdown -->
