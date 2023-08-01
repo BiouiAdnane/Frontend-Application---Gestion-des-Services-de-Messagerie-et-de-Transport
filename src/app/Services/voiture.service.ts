@@ -29,5 +29,5 @@ export class VoitureService {
     return this.http.delete(this.backendHost+"/voitures/"+code_Voiture)
   }
 
-  
+
 }

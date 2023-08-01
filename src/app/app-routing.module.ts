@@ -20,7 +20,7 @@ const routes: Routes = [
   {path :"Repos", component: ReposComponent},
   {path:"newRepos",component: NewReposComponent},
 
-  {path:"/Vehicules", component: VehiculeComponent},
+  {path:"Vehicules", component: VehiculeComponent},
 
 
   {path:"Permis", component: PermisComponent},

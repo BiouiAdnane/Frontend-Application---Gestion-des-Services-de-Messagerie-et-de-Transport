@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup} from "@angular/forms";
-import {Observable} from "rxjs";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {map, Observable, of} from "rxjs";
 import {Voiture} from "../Models/Voiture";
+import {VoitureService} from "../../Services/voiture.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-vehicule',
@@ -10,48 +12,36 @@ import {Voiture} from "../Models/Voiture";
 })
 export class VehiculeComponent implements OnInit{
   getVehiculeFormGroup!:FormGroup;
-  vehicules!: Observable<Array<Voiture>>;
+  voitures!: Observable<Array<Voiture>>;
   errMessage!:String;
 
 
   ngOnInit(): void {
+    this.handelListVehicules();
   }
 
 
-  constructor(private voitureService :, private fb : FormBuilder, private router:Router) {
+  constructor(private voitureService :VoitureService, private fb : FormBuilder, private router:Router) {
   }
 
-  handelSearchArticle() {
-    let kw=this.searchArticleFormGroup?.value.keyword;
-    this.article=this.articleService.searchArticle(kw).pipe(
-      catchError(err=>{
-        this.errMessage=err.message;
-        return throwError(err);
-
-      })
-    )
-
+  handelListVehicules() {
+    this.voitureService.listVehicules().subscribe({
+      next: (data) => {
+        this.voitures = of(data); // Convert the array to an Observable using `of` from 'rxjs'
+      },
+      error: (err) => {
+        this.errMessage = "Error fetching vehicle data.";
+      },
+    });
   }
 
-  handledDeleteArticle(a: Article) {
-    let conf=confirm("Voulez vous supprimer cet article ?")
-    if (!conf) return;
-    this.articleService.deleteArticle(a.code_Article).subscribe({
-      next:(data)=>{
-        this.article=this.article.pipe(
-          map(data=>{
-            let index=data.indexOf(a);
-            data.slice(index, 1);
-            return data;
-          })
-        )
-      }, error:err => {
-        console.log(err)       }
-    })
+
+  handledDeleteVehicule(v: Voiture) {
+   
 
   }
 
-  handelUpdateArticle(a: Article) {
-    this.router.navigateByUrl("/updateArticle/"+a.code_Article)
+  handelUpdateArticle(v: Voiture) {
+    this.router.navigateByUrl("/updateVehicule/"+v.code_Voiture)
   }
 }

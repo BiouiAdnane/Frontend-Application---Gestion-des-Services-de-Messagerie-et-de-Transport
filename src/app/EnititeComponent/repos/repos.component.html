@@ -21,11 +21,7 @@
         <h3>La liste des différents repos :</h3>
       </div>
       <div class="card-body bg-light">
-        <div *ngIf="searchReposFormGroup">
-          <div [formGroup]="searchReposFormGroup" (ngSubmit)="handelgetRepos()">
-            <button class="btn bg-dark-subtle justify-content offset-10 ">Ajouter un repos</button>
-          </div>
-        </div>
+
         <table class="table ">
           <thead >
           <div class="btn bg-dark-subtle mb-3 " (click)="handelNewRepos()">Ajouter un repos</div>
