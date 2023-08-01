@@ -1,0 +1,74 @@
+<div class="container mt-2">
+  <ng-template #failureOrLoading >
+    <ng-container *ngIf="errMessage; else loading">
+      <div  class="text-danger">
+        {{errMessage}}
+      </div>
+    </ng-container>
+    <ng-template #loading >
+      <div class="text-center " id="loading">
+        <div class="spinner-border text-primary" style="width: 6rem; height: 6rem;" role="status">
+        </div></div>
+    </ng-template>
+
+  </ng-template>
+  <ng-container *ngIf="conducteur | async as listConducteurs; else failureOrLoading">
+    <div class="card ">
+      <div *ngIf="errMessage">
+        {{errMessage}}
+      </div>
+      <div class="card-header bg-dark text-white"> <h4>La liste des conducteurs :</h4></div>
+      <div class="card-body bg-light">
+        <div *ngIf="searchConducteurFormGroup">
+          <form [formGroup]="searchConducteurFormGroup" (ngSubmit)="handelSearchConducteur()">
+            <div class="input-group">
+              <label class="input-group-text bg-dark text-white">Nom ou Prénom Conducteur:</label>
+              <input type="text" formControlName="keyword" class="form-control">
+              <button class="btn bg-dark-subtle">
+                <div class="bi bi-search">Chercher</div>
+              </button>
+              <button routerLink="/newConducteur" class="btn bg-dark text-white ms-5">
+                <div> <i class="bi bi-person-add me-2"></i>Nouveau Conducteur</div>
+              </button>
+            </div>
+          </form>
+        </div>
+        <table class="table ">
+          <thead >
+          <tr>
+            <th >Matricule</th><th>Nom</th><th>Prenom</th> <th>CIN</th><th>Les catégories du permis</th><th>Adresse</th><th>Date de naissance</th><th>Visualiser</th><th>Supp</th><th>Voyage</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of conducteur |async ">
+            <td class="text-center">{{c.matricule}}</td>
+            <td>{{c.nom}}</td>
+            <td>{{c.prenom}}</td>
+            <td>{{c.cin}}</td>
+            <td class="text-center">{{c.permis.typePermisList}}</td>
+            <td>{{c.adresse}}</td>
+            <td>{{c.date_Naissance | date:'yyyy-MM-dd'}}</td>
+            <td class="">
+              <button class="btn btn-success text-white" (click)="handledVisualiserConducteur(c)">
+                <i class="bi bi-eye" ></i>
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="handledDeleteConducteur(c)">
+                <i class="bi bi-trash" ></i>
+              </button>
+            </td>
+
+            <td >
+              <button class="btn btn-primary " (click)="handelVoyageConducteur(c)">
+                <i class="bi-car-front"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </ng-container>
+</div>

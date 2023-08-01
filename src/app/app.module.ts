@@ -16,6 +16,7 @@ import { VisualiserConducteurComponent } from './EnititeComponent/visualiser-con
 import { NewConducteurComponent } from './NewEntities/new-conducteur/new-conducteur.component';
 import { ReposComponent } from './EnititeComponent/repos/repos.component';
 import { NewReposComponent } from './NewEntities/new-repos/new-repos.component';
+import { VehiculeComponent } from './EnititeComponent/vehicule/vehicule.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NewReposComponent } from './NewEntities/new-repos/new-repos.component';
     VisualiserConducteurComponent,
     NewConducteurComponent,
     ReposComponent,
-    NewReposComponent
+    NewReposComponent,
+    VehiculeComponent
   ],
     imports: [
         BrowserModule,

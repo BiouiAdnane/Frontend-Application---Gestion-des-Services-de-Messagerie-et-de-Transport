@@ -9,6 +9,7 @@ import {UpdatePermisComponent} from "./UpdateEntities/update-permis/update-permi
 import {NewConducteurComponent} from "./NewEntities/new-conducteur/new-conducteur.component";
 import {ReposComponent} from "./EnititeComponent/repos/repos.component";
 import {NewReposComponent} from "./NewEntities/new-repos/new-repos.component";
+import {VehiculeComponent} from "./EnititeComponent/vehicule/vehicule.component";
 
 const routes: Routes = [
   {path :"Conducteurs", component: ConducteurComponent},
@@ -18,6 +19,8 @@ const routes: Routes = [
 
   {path :"Repos", component: ReposComponent},
   {path:"newRepos",component: NewReposComponent},
+
+  {path:"/Vehicules", component: VehiculeComponent},
 
 
   {path:"Permis", component: PermisComponent},
