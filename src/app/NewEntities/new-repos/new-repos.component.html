@@ -1,41 +1,51 @@
-<div class="container">
-  <div class="card col-md-6  mt-4">
+<div class="container ">
+  <div class="card col-md-8 offset-2  mt-5">
     <div class="card-header bg-dark text-white"><h3>Nouveau Repos</h3></div>
     <div class="card-body">
       <form [formGroup]="newReposFormGroup" (ngSubmit)="handleSaveRepos()" method="post">
-
-        <div class="mb-3 ">
-          <label class="form-label">Date début du repos:</label>
-          <input type="date" formControlName="date_Debut" class="form-control">
+        <div class="mb-4 mt-2 row">
+          <label class="form-label col-md-4">Date début du repos :</label>
+          <div class="col-md-6">
+            <input type="date" formControlName="date_Debut" class="form-control text-center bg-light">
+          </div>
         </div>
-        <div class="mb-3">
-          <label class="form-label">Date fin du repos:</label>
-          <input type="date" formControlName="date_Fin" class="form-control">
+        <hr>
+        <div class="mb-4 mt-4 row">
+          <label class="form-label col-md-4">Date fin du repos :</label>
+          <div class="col-md-6">
+            <input type="date" formControlName="date_Fin" class="form-control text-center bg-light">
+          </div>
         </div>
 
-        <div class="bg-danger-subtle text-danger border-5 rounded-4">
-          <h2 class="ms-3 pt-1">
+        <hr>
+        <div  class="alert alert-warning text-warning " role="alert">
+
+          <h4 >
+            <img src="assets/warning1.png" width="30px" class="mb-1">
             Attention !!!
-          </h2>
-          <h4 class="ms-2 pb-3">
-            Il faut compter le premier et le dérnier jour dans les jours du repos.
           </h4>
+          <h5 >
+            Il faut prendre en considération que le premier jour et le dernier jour font partie du repos.
+          </h5>
         </div>
-
+        <hr>
         <!-- Modified part: Conducteur dropdown -->
-        <div class="mb-3">
-          <label class="form-label">Le conducteur:</label>
-          <select formControlName="conducteur" class="form-control">
+        <div class="mb-4 mt-4 row">
+          <label class="form-label col-md-4">Le conducteur:</label>
+          <div class="col-md-6 ">
+          <select formControlName="conducteur" class="form-control bg-light ">
             <option *ngFor="let conducteur of conducteurs" [value]="conducteur.cin">
               {{ conducteur.nom }} {{ conducteur.prenom }}
             </option>
           </select>
+          </div>
         </div>
 
         <div class="d-grid col-md-6 offset-3">
-          <button class="btn btn-info">Enregistrer</button>
+          <button class="btn btn-dark">Enregistrer</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+

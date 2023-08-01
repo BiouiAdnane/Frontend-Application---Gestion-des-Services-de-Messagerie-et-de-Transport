@@ -14,7 +14,8 @@ import {Conducteur} from "../../EnititeComponent/Models/Conducteur";
 export class NewReposComponent implements OnInit {
 
   newReposFormGroup!: FormGroup;
-  conducteurs: Conducteur[] = []; // Array to hold the list of conducteurs
+  conducteurs: Conducteur[] = [];
+  selectedConducteur: Conducteur | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -25,7 +26,7 @@ export class NewReposComponent implements OnInit {
 
   ngOnInit(): void {
     this.newReposFormGroup = this.fb.group({
-      code_Repos:0,
+      code_Repos: 0,
       date_Debut: ['', Validators.required],
       date_Fin: ['', Validators.required],
       conducteur: ['', Validators.required],
@@ -34,6 +35,16 @@ export class NewReposComponent implements OnInit {
     this.handelGetListConducteurs();
   }
 
+// Example method accessing selected conductor information
+  someOtherMethod(): void {
+    if (this.selectedConducteur) {
+      console.log("Selected Conductor Information:", this.selectedConducteur);
+    } else {
+      console.log("No conductor selected.");
+    }
+  }
+
+
   handleSaveRepos() {
     if (this.newReposFormGroup.invalid) {
       alert("Veuillez remplir correctement tous les champs du formulaire.");
@@ -41,18 +52,18 @@ export class NewReposComponent implements OnInit {
     }
 
     const selectedCin = this.newReposFormGroup.get('conducteur')?.value;
-    const selectedConducteur = this.conducteurs.find((c) => c.cin === selectedCin);
+    this.selectedConducteur = this.conducteurs.find((c) => c.cin === selectedCin) || null;
 
-    if (!selectedConducteur) {
+    if (!this.selectedConducteur) {
       alert("Le conducteur sélectionné n'a pas été trouvé dans la liste des conducteurs.");
       return;
     }
 
     const data: Repos = {
-      code_Repos:0,
+      code_Repos: 0,
       date_Debut: this.newReposFormGroup.get('date_Debut')?.value,
       date_Fin: this.newReposFormGroup.get('date_Fin')?.value,
-      conducteur: selectedConducteur,
+      conducteur: this.selectedConducteur,
     };
 
     this.reposService.saveRepos(data).subscribe({
@@ -65,6 +76,7 @@ export class NewReposComponent implements OnInit {
       }
     });
   }
+
 
   handelGetListConducteurs() {
     this.conducteurService.listConducteur().subscribe(
