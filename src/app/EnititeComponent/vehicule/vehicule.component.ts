@@ -37,9 +37,26 @@ export class VehiculeComponent implements OnInit{
 
 
   handledDeleteVehicule(v: Voiture) {
-   
-
+    let conf = confirm("Voulez-vous supprimer ce véhicule ?");
+    if (!conf) return;
+    this.voitureService.deleteVehicule(v.code_Voiture).subscribe({
+      next: (data) => {
+        this.voitures = this.voitures.pipe(
+          map((dataArr) => {
+            let index = dataArr.findIndex((item) => item.code_Voiture === v.code_Voiture);
+            if (index > -1) {
+              dataArr.splice(index, 1);
+            }
+            return dataArr;
+          })
+        );
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
+
 
   handelUpdateArticle(v: Voiture) {
     this.router.navigateByUrl("/updateVehicule/"+v.code_Voiture)
