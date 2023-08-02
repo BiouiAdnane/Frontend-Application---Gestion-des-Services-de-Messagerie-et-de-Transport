@@ -1,0 +1,158 @@
+<div class="container mt-2" *ngIf="vehivule">
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="card">
+        <div class="card-header bg-black text-white">
+          <h3>Carte Grise</h3>
+        </div>
+        <div class="card-body bg-light">
+          <div class=" row">
+            <label class="form-label col-md-4">Immatriculation :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.carteGrise.num_Immatricualtion }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Marque :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.carteGrise.marque }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Model :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.carteGrise.model }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Nombre de place :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.carteGrise.nombre_Place }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Nom propriétaire :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.carteGrise.nom_Proprietaire }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Type carburant :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.carteGrise.typeCarburant }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Date début :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.carteGrise.date_Debut }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Date fin :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.carteGrise.date_Fin }}</strong>
+            </div>
+          </div>
+      </div>
+      </div>
+      <div class="card mt-4">
+        <div class="card-header bg-black text-white">
+          <h3>Vignette</h3>
+        </div>
+        <div class="card-body">
+          <div class=" row">
+            <label class="form-label col-md-4">Code vignette :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.vignette.code_Vignette }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Date début :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.vignette.date_Debut }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Date fin :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.vignette.date_Fin }}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <div class="col-md-6">
+
+      <div class="card ">
+        <div class="card-header bg-black text-white">
+          <h3>Assurance</h3>
+        </div>
+        <div class="card-body">
+          <div class=" row">
+            <label class="form-label col-md-4">Code assurance :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.assurance.code_Assurance }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Type assurance :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.assurance.type_Assurance }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Date début :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.assurance.date_Debut }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Date fin :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.assurance.date_Fin }}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-header bg-black text-white">
+          <h3>Visite Technique</h3>
+        </div>
+        <div class="card-body">
+          <div class=" row">
+            <label class="form-label col-md-4">Code visite technique :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.visiteTechnique.code_VisTech }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Etat du véhicule :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.visiteTechnique.etat_Voiture }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Date début :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.visiteTechnique.date_debut }}</strong>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Date fin :</label>
+            <div class="col-md-6">
+              <strong class="offset-3">{{ vehivule.visiteTechnique.date_Fin }}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
