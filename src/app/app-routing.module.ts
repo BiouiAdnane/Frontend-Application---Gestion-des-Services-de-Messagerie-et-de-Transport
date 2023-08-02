@@ -10,6 +10,7 @@ import {NewConducteurComponent} from "./NewEntities/new-conducteur/new-conducteu
 import {ReposComponent} from "./EnititeComponent/repos/repos.component";
 import {NewReposComponent} from "./NewEntities/new-repos/new-repos.component";
 import {VehiculeComponent} from "./EnititeComponent/vehicule/vehicule.component";
+import {UpdateVehiculeComponent} from "./UpdateEntities/update-vehicule/update-vehicule.component";
 
 const routes: Routes = [
   {path :"Conducteurs", component: ConducteurComponent},
@@ -21,7 +22,7 @@ const routes: Routes = [
   {path:"newRepos",component: NewReposComponent},
 
   {path:"Vehicules", component: VehiculeComponent},
-  {path:"updateVehicule/:code_Voiture"},
+  {path:"updateVehicule/:code_Voiture", component:UpdateVehiculeComponent},
   {path:"visualiserVehicule/:code_Voiture",component: VisualiserConducteurComponent},
 
 
