@@ -21,6 +21,8 @@ const routes: Routes = [
   {path:"newRepos",component: NewReposComponent},
 
   {path:"Vehicules", component: VehiculeComponent},
+  {path:"updateVehicule/:code_Voiture"},
+  {path:"visualiserVehicule/:code_Voiture",component: VisualiserConducteurComponent},
 
 
   {path:"Permis", component: PermisComponent},

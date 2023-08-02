@@ -27,10 +27,10 @@ export class VehiculeComponent implements OnInit{
   handelListVehicules() {
     this.voitureService.listVehicules().subscribe({
       next: (data) => {
-        this.voitures = of(data); // Convert the array to an Observable using `of` from 'rxjs'
+        this.voitures = of(data);
       },
       error: (err) => {
-        this.errMessage = "Error fetching vehicle data.";
+        this.errMessage = "Error fetching vehicule data.";
       },
     });
   }
@@ -58,7 +58,10 @@ export class VehiculeComponent implements OnInit{
   }
 
 
-  handelUpdateArticle(v: Voiture) {
+  handelUpdateVehicule(v: Voiture) {
     this.router.navigateByUrl("/updateVehicule/"+v.code_Voiture)
+  }
+  handelVisualiserVehicule(v: Voiture) {
+    this.router.navigateByUrl("/visualiserVehicule/"+v.code_Voiture)
   }
 }

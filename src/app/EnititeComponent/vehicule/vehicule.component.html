@@ -41,7 +41,7 @@
             <td>{{v.carteGrise.date_Debut| date:'yyyy-MM-dd'}}</td>
             <td>{{v.carteGrise.date_Fin| date:'yyyy-MM-dd'}}</td>
             <td class="">
-              <button class="btn btn-success text-white" >
+              <button class="btn btn-success text-white" (click)="handelVisualiserVehicule(v)">
                 <i class="bi bi-eye" ></i>
               </button>
             </td>
@@ -52,7 +52,7 @@
             </td>
 
             <td >
-              <button class="btn btn-primary " (click)="handelUpdateArticle(v)">
+              <button class="btn btn-primary " (click)="handelUpdateVehicule(v)">
                 <i class="bi-stripe"></i>
               </button>
             </td>
