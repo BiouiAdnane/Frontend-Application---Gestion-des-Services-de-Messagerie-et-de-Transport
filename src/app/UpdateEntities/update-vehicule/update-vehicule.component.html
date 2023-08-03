@@ -1,1 +1,175 @@
-<p>update-vehicule works!</p>
+<div class="container " >
+  <form *ngIf="form" [formGroup]="updateVehiculeFormGroup" (ngSubmit)="handleUpdateVehicule()" >
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="card mt-4">
+        <div class="card-header bg-black text-white">
+          <h4>Carte Grise :</h4>
+        </div>
+        <div class="card-body bg-light">
+          <div class=" row ">
+            <label class="form-label col-md-4 pt-0">Immatriculation :</label>
+            <div class="col-md-6 ">
+              <input type="text" formControlName="ImmatCarteGrise" class="form-control text-center  " readonly>
+            </div>
+          </div>
+          <div class=" row ">
+            <label class="form-label col-md-4 pt-0">Type de permis necessaire</label>
+            <div class="col-md-6 ">
+              <input type="text" formControlName="typePermisVoiture" class="form-control text-center  " >
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Marque :</label>
+            <div class="col-md-6">
+              <input type="text" formControlName="MarqueCarteGrise" class="form-control text-center  ">
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Model :</label>
+            <div class="col-md-6">
+              <input type="text" formControlName="ModelCarteGrise" class="form-control text-center  ">
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Nombre de place :</label>
+            <div class="col-md-6">
+              <input type="number" formControlName="NbPlaceCarteGrise" class="form-control text-center  ">
+            </div>
+            </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Nom propriétaire :</label>
+            <div class="col-md-6">
+              <input type="text" formControlName="ProprietaireCarteGrise" class="form-control text-center  ">
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Type carburant :</label>
+            <div class="col-md-6">
+              <input type="text" formControlName="CarburantCarteGrise" class="form-control text-center  ">
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Date début :</label>
+            <div class="col-md-6">
+              <input type="date" formControlName="DateDebutCarteGrise" class="form-control text-center  ">
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Date d'éxpiration :</label>
+            <div class="col-md-6">
+              <input type="date" formControlName="DateFinCarteGrise" class="form-control text-center  ">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="card mt-4">
+        <div class="card-header bg-black text-white">
+          <h4>Vignette :</h4>
+        </div>
+        <div class="card-body bg-light">
+          <div class=" row">
+            <label class="form-label col-md-4">Code vignette :</label>
+            <div class="col-md-6">
+              <input type="text" formControlName="CodeVignette" class="form-control text-center  " readonly>
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Date début :</label>
+            <div class="col-md-6">
+              <input type="date" formControlName="DateDebutVignette" class="form-control text-center  ">
+            </div>
+          </div>
+          <div class=" row">
+            <label class="form-label col-md-4">Date d'éxpiration :</label>
+            <div class="col-md-6">
+              <input type="date" formControlName="DateFinVignette" class="form-control text-center  ">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="card mt-3">
+        <div class="card-header bg-black text-white">
+          <h4>Assurance :</h4>
+        </div>
+        <div class="card-body bg-light">
+          <div class=" row">
+            <label class="form-label col-md-4">Code assurance :</label>
+            <div class="col-md-6">
+              <input type="text" formControlName="CodeAssurance" class="form-control text-center  " readonly>
+            </div>
+          </div>
+
+          <div class=" row">
+            <label class="form-label col-md-4">Type assurance :</label>
+            <div class="col-md-6">
+              <input type="text" formControlName="TypeAssurance" class="form-control text-center  ">
+            </div>
+          </div>
+
+          <div class=" row">
+            <label class="form-label col-md-4">Date début :</label>
+            <div class="col-md-6">
+              <input type="date" formControlName="dateDebutAssurance" class="form-control text-center  ">
+            </div>
+          </div>
+
+          <div class=" row">
+            <label class="form-label col-md-4">Date d'éxpiration :</label>
+            <div class="col-md-6">
+              <input type="date" formControlName="dateFinAssurance" class="form-control text-center  ">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-header bg-black text-white">
+          <h4>Visite Technique :</h4>
+        </div>
+        <div class="card-body bg-light">
+          <div class=" row">
+            <label class="form-label col-md-4">Code visite technique :</label>
+            <div class="col-md-6">
+              <input type="text" formControlName="CodeVisite" class="form-control text-center  " readonly>
+            </div>
+          </div>
+
+          <div class=" row">
+            <label class="form-label col-md-4">Etat du véhicule :</label>
+            <div class="col-md-6">
+              <input type="text" formControlName="EtatVoiture" class="form-control text-center  ">
+            </div>
+          </div>
+
+          <div class=" row">
+            <label class="form-label col-md-4">Date début :</label>
+            <div class="col-md-6">
+              <input type="date" formControlName="DateDebutVisite" class="form-control text-center  ">
+            </div>
+          </div>
+
+          <div class=" row">
+            <label class="form-label col-md-4">Date d'éxpiration :</label>
+            <div class="col-md-6">
+              <input type="date" formControlName="DateFinVisite" class="form-control text-center  ">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-grid col-md-6 offset-3">
+        <button (click)="handleUpdateVehicule()" class="btn btn-dark mt-3">Enregistrer</button>
+      </div>
+
+    </div>
+  </div>
+
+  </form>
+</div>

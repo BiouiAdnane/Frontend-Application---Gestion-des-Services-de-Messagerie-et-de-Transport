@@ -102,15 +102,12 @@ export class UpdatePermisComponent implements OnInit {
   }
 
   handelUpdatePermis() {
-    // Update the 'typePermisList' property of the 'permis' object with selected permit types
     this.permis.typePermisList = this.selectedCategories;
 
-    // Update the form values for date_Delivrance, date_Fin, and lieu_Delivrance
     this.permis.date_Delivrance = this.updatePermisFormGroup.get('date_Delivrance')?.value;
     this.permis.date_Fin = this.updatePermisFormGroup.get('date_Fin')?.value;
     this.permis.lieu_Delivrance = this.updatePermisFormGroup.get('lieu_Delivrance')?.value;
 
-    // Save the updated 'permis' object
     this.permisService.savePermis(this.permis).subscribe({
       next: (data) => {
         alert('La modification est faite avec succès');

@@ -27,7 +27,7 @@
         <table class="table ">
           <thead >
           <tr>
-            <th >Code </th><th>Immatriculation</th><th>Marque</th> <th>Model</th><th>Nom Propriétaire</th><th>N° de places</th><th>Date début</th><th>Date fin</th><th>Visualiser</th><th>Supp</th><th>Voyage</th>
+            <th >Code </th><th>Immatriculation</th><th>Marque</th> <th>Model</th><th>Nom Propriétaire</th><th>N° de places</th><th>Date début</th><th>Date fin</th><th>Visualiser</th> <th>Modif</th><th>Supp</th><th>Voyage</th>
           </tr>
           </thead>
           <tbody>
@@ -43,6 +43,11 @@
             <td class="">
               <button class="btn btn-success text-white" (click)="handelVisualiserVehicule(v)">
                 <i class="bi bi-eye" ></i>
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-dark text-white" (click)="handelUpdateVehicule(v)">
+                <i class="bi-pen-fill"></i>
               </button>
             </td>
             <td>
