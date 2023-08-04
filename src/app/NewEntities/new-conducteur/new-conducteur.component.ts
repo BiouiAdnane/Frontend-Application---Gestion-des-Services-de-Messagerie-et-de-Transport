@@ -16,7 +16,7 @@ export class NewConducteurComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private conducteurService: ConducteurService // Replace with the actual ConducteurService instance
+    private conducteurService: ConducteurService
   ) {}
 
   ngOnInit(): void {

@@ -19,6 +19,7 @@ import { NewReposComponent } from './NewEntities/new-repos/new-repos.component';
 import { VehiculeComponent } from './EnititeComponent/vehicule/vehicule.component';
 import { VisualiserVehiculeComponent } from './EnititeComponent/visualiser-vehicule/visualiser-vehicule.component';
 import { UpdateVehiculeComponent } from './UpdateEntities/update-vehicule/update-vehicule.component';
+import { NewVehiculeComponent } from './NewEntities/new-vehicule/new-vehicule.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UpdateVehiculeComponent } from './UpdateEntities/update-vehicule/update
     NewReposComponent,
     VehiculeComponent,
     VisualiserVehiculeComponent,
-    UpdateVehiculeComponent
+    UpdateVehiculeComponent,
+    NewVehiculeComponent
   ],
     imports: [
         BrowserModule,
