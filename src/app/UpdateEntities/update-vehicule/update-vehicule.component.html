@@ -1,5 +1,5 @@
 <div class="container " >
-  <form *ngIf="form" [formGroup]="updateVehiculeFormGroup" (ngSubmit)="handleUpdateVehicule()" >
+  <form  [formGroup]="updateVehiculeFormGroup" (ngSubmit)="handleUpdateVehicule()" >
   <div class="row">
     <div class="col-md-6">
 
@@ -11,13 +11,23 @@
           <div class=" row ">
             <label class="form-label col-md-4 pt-0">Immatriculation :</label>
             <div class="col-md-6 ">
-              <input type="text" formControlName="ImmatCarteGrise" class="form-control text-center  " readonly>
+              <input type="text" formControlName="ImmatCarteGrise" class="form-control text-center" readonly>
             </div>
           </div>
-          <div class=" row ">
-            <label class="form-label col-md-4 pt-0">Type de permis necessaire</label>
-            <div class="col-md-6 ">
-              <input type="text" formControlName="typePermisVoiture" class="form-control text-center  " >
+          <div class="row">
+            <label class="form-label col-md-4 pt-0">Type permis nécessaire :</label>
+            <div class="col-md-6">
+              <select formControlName="typePermisVoiture" class="form-control text-center">
+                <option value="AM">AM</option>
+                <option value="A1">A1</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="EB">EB</option>
+                <option value="EC">EC</option>
+                <option value="ED">ED</option>
+              </select>
             </div>
           </div>
           <div class=" row">
@@ -44,10 +54,17 @@
               <input type="text" formControlName="ProprietaireCarteGrise" class="form-control text-center  ">
             </div>
           </div>
-          <div class=" row">
-            <label class="form-label col-md-4">Type carburant :</label>
+          <div class="row">
+            <label class="form-label col-md-4 pt-0">Type carburant :</label>
             <div class="col-md-6">
-              <input type="text" formControlName="CarburantCarteGrise" class="form-control text-center  ">
+              <select formControlName="CarburantCarteGrise" class="form-control text-center">
+                <option value="Diesel">Diesel</option>
+                <option value="Essence">Essence</option>
+                <option value="GPL">GPL</option>
+                <option value="GNC">GNC</option>
+                <option value="Electricité">Electricité</option>
+                <option value="Autre">Autre</option>
+              </select>
             </div>
           </div>
           <div class=" row">
@@ -141,13 +158,16 @@
             </div>
           </div>
 
-          <div class=" row">
-            <label class="form-label col-md-4">Etat du véhicule :</label>
+
+          <div class="row">
+            <label class="form-label col-md-4 pt-0">Etat du véhicule :</label>
             <div class="col-md-6">
-              <input type="text" formControlName="EtatVoiture" class="form-control text-center  ">
+              <select formControlName="EtatVoiture" class="form-control text-center">
+                <option value="Conforme">✓ Conforme aux normes</option>
+                <option value="Non_Conforme">✘ Non Conforme</option>
+              </select>
             </div>
           </div>
-
           <div class=" row">
             <label class="form-label col-md-4">Date début :</label>
             <div class="col-md-6">
@@ -165,8 +185,9 @@
       </div>
 
       <div class="d-grid col-md-6 offset-3">
-        <button (click)="handleUpdateVehicule()" class="btn btn-dark mt-3">Enregistrer</button>
+        <button class="btn btn-dark mt-3">Enregistrer</button>
       </div>
+
 
     </div>
   </div>

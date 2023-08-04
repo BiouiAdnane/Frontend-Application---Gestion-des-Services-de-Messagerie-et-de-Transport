@@ -13,101 +13,109 @@ import {VoitureService} from "../../Services/voiture.service";
   templateUrl: './update-vehicule.component.html',
   styleUrls: ['./update-vehicule.component.css']
 })
-export class UpdateVehiculeComponent implements OnInit{
-
-  code_Voiture!:number;
-  assurance!:Assurance;
-  carteGrise!:Carte_Grise;
-  vignette!:Vignette;
-  visiteTechnique!:Visite_Technique;
-  voiture!:Voiture;
-
+export class UpdateVehiculeComponent implements OnInit {
   updateVehiculeFormGroup!: FormGroup;
-  form: FormGroup = this.fb.group({})
+  vehicule!: Voiture;
 
-  constructor(private route:ActivatedRoute,private router:Router, public voitureService : VoitureService, private fb : FormBuilder) {
-    this.voiture=this.router.getCurrentNavigation()?.extras.state as Voiture;
-    this.updateVehiculeFormGroup=new FormGroup({
-      code_Voiture:new FormControl(this.code_Voiture),
-      typePermisVoiture:new FormControl(),
-
-      CodeAssurance:new FormControl(),
-      TypeAssurance:new FormControl(),
-      dateDebutAssurance:new FormControl(),
-      dateFinAssurance:new FormControl(),
-
-      ImmatCarteGrise:new FormControl(),
-      MarqueCarteGrise:new FormControl(),
-      ModelCarteGrise:new FormControl(),
-      NbPlaceCarteGrise:new FormControl(),
-      CarburantCarteGrise:new FormControl(),
-      ProprietaireCarteGrise:new FormControl(),
-      DateDebutCarteGrise:new FormControl(),
-      DateFinCarteGrise:new FormControl(),
-
-      CodeVignette:new FormControl(),
-      DateDebutVignette:new FormControl(),
-      DateFinVignette:new FormControl(),
-
-      CodeVisite:new FormControl(),
-      EtatVoiture:new FormControl(),
-      DateDebutVisite:new FormControl(),
-      DateFinVisite:new FormControl(),
-    })
-
-  }
+  constructor(
+    private route:ActivatedRoute,private router:Router,
+    private formBuilder: FormBuilder,
+    private vehiculeService: VoitureService
+  ) { }
 
   ngOnInit(): void {
-    this.code_Voiture=this.route.snapshot.params['code_Voiture'];
-    this.voitureService.getVoiture(this.code_Voiture).subscribe({
-      next:(voiture)=>{
-        this.voiture=voiture;
-        this.updateVehiculeFormGroup=this.fb.group({
-          code_Voiture:this.fb.control(this.code_Voiture),
-          typePermisVoiture:this.fb.control(this.voiture.typePermisVoiture),
+    this.updateVehiculeFormGroup = this.formBuilder.group({
+      ImmatCarteGrise: [''],
+      typePermisVoiture: [''],
+      MarqueCarteGrise: [''],
+      ModelCarteGrise: [''],
+      NbPlaceCarteGrise: [''],
+      ProprietaireCarteGrise: [''],
+      CarburantCarteGrise: [''],
+      DateDebutCarteGrise: [''],
+      DateFinCarteGrise: [''],
+      CodeVignette: [''],
+      DateDebutVignette: [''],
+      DateFinVignette: [''],
+      CodeAssurance: [''],
+      TypeAssurance: [''],
+      dateDebutAssurance: [''],
+      dateFinAssurance: [''],
+      CodeVisite: [''],
+      EtatVoiture: [''],
+      DateDebutVisite: [''],
+      DateFinVisite: ['']
+    });
 
-          CodeAssurance:this.fb.control(this.voiture.assurance.code_Assurance),
-          TypeAssurance:this.fb.control(this.voiture.assurance.type_Assurance),
-          dateDebutAssurance:this.fb.control(this.voiture.assurance.date_Debut),
-          dateFinAssurance: this.fb.control(this.voiture.assurance.date_Fin),
-
-          ImmatCarteGrise:this.fb.control(this.voiture.carteGrise.num_Immatricualtion),
-          MarqueCarteGrise:this.fb.control(this.voiture.carteGrise.marque),
-          ModelCarteGrise:this.fb.control(this.voiture.carteGrise.model),
-          NbPlaceCarteGrise: this.fb.control(this.voiture.carteGrise.nombre_Place),
-          CarburantCarteGrise:this.fb.control(this.voiture.carteGrise.typeCarburant),
-          ProprietaireCarteGrise:this.fb.control(this.voiture.carteGrise.nom_Proprietaire),
-          DateDebutCarteGrise:this.fb.control(this.voiture.carteGrise.date_Debut),
-          DateFinCarteGrise:this.fb.control(this.voiture.carteGrise.date_Fin),
-
-          CodeVignette:this.fb.control(this.voiture.vignette.code_Vignette),
-          DateDebutVignette:this.fb.control(this.voiture.vignette.date_Debut),
-          DateFinVignette: this.fb.control(this.voiture.vignette.date_Fin),
-
-          CodeVisite:this.fb.control(this.voiture.visiteTechnique.code_VisTech),
-          EtatVoiture:this.fb.control(this.voiture.visiteTechnique.etat_Voiture),
-          DateDebutVisite:this.fb.control(this.voiture.visiteTechnique.date_debut),
-          DateFinVisite: this.fb.control(this.voiture.visiteTechnique.date_Fin),
-
-        })
+    // Obtenez le véhicule à partir du service (remplacez "idDuVehicule" par l'ID du véhicule que vous souhaitez modifier)
+    const idDuVehicule = this.route.snapshot.params['code_Voiture'];
+    this.vehiculeService.getVoiture(idDuVehicule).subscribe(
+      (vehicule: Voiture) => {
+        this.vehicule = vehicule;
+        this.updateVehiculeFormGroup.patchValue({
+          ImmatCarteGrise: vehicule.carteGrise.num_Immatricualtion,
+          typePermisVoiture: vehicule.typePermisVoiture,
+          MarqueCarteGrise: vehicule.carteGrise.marque,
+          ModelCarteGrise: vehicule.carteGrise.model,
+          NbPlaceCarteGrise: vehicule.carteGrise.nombre_Place,
+          ProprietaireCarteGrise: vehicule.carteGrise.nom_Proprietaire,
+          CarburantCarteGrise: vehicule.carteGrise.typeCarburant,
+          DateDebutCarteGrise: vehicule.carteGrise.date_Debut,
+          DateFinCarteGrise: vehicule.carteGrise.date_Fin,
+          CodeVignette: vehicule.vignette.code_Vignette,
+          DateDebutVignette: vehicule.vignette.date_Debut,
+          DateFinVignette: vehicule.vignette.date_Fin,
+          CodeAssurance: vehicule.assurance.code_Assurance,
+          TypeAssurance: vehicule.assurance.type_Assurance,
+          dateDebutAssurance: vehicule.assurance.date_Debut,
+          dateFinAssurance: vehicule.assurance.date_Fin,
+          CodeVisite: vehicule.visiteTechnique.code_VisTech,
+          EtatVoiture: vehicule.visiteTechnique.etat_Voiture,
+          DateDebutVisite: vehicule.visiteTechnique.date_debut,
+          DateFinVisite: vehicule.visiteTechnique.date_Fin
+        });
       },
-      error : (err)=> {
-        console.log(err);
+      error => {
+        console.error('Erreur lors de la récupération du véhicule : ', error);
       }
-    })
+    );
   }
 
-  handleUpdateVehicule() {
-    let v= this.updateVehiculeFormGroup.value;
-    v.voiture.code_Voiture=this.voiture.code_Voiture;
-    this.voitureService.saveVehicule(v).subscribe({
-      next : (data)=>{
+  handleUpdateVehicule(): void {
+    // Récupérez les valeurs modifiées du formulaire
+    const formData = this.updateVehiculeFormGroup.value;
+
+    // Mettez à jour les données du véhicule avec les nouvelles valeurs
+    this.vehicule.carteGrise.num_Immatricualtion = formData.ImmatCarteGrise;
+    this.vehicule.typePermisVoiture = formData.typePermisVoiture;
+    this.vehicule.carteGrise.marque = formData.MarqueCarteGrise;
+    this.vehicule.carteGrise.model = formData.ModelCarteGrise;
+    this.vehicule.carteGrise.nombre_Place = formData.NbPlaceCarteGrise;
+    this.vehicule.carteGrise.nom_Proprietaire = formData.ProprietaireCarteGrise;
+    this.vehicule.carteGrise.typeCarburant = formData.CarburantCarteGrise;
+    this.vehicule.carteGrise.date_Debut = formData.DateDebutCarteGrise;
+    this.vehicule.carteGrise.date_Fin = formData.DateFinCarteGrise;
+    this.vehicule.vignette.code_Vignette = formData.CodeVignette;
+    this.vehicule.vignette.date_Debut = formData.DateDebutVignette;
+    this.vehicule.vignette.date_Fin = formData.DateFinVignette;
+    this.vehicule.assurance.code_Assurance = formData.CodeAssurance;
+    this.vehicule.assurance.type_Assurance = formData.TypeAssurance;
+    this.vehicule.assurance.date_Debut = formData.dateDebutAssurance;
+    this.vehicule.assurance.date_Fin = formData.dateFinAssurance;
+    this.vehicule.visiteTechnique.code_VisTech = formData.CodeVisite;
+    this.vehicule.visiteTechnique.etat_Voiture = formData.EtatVoiture;
+    this.vehicule.visiteTechnique.date_debut = formData.DateDebutVisite;
+    this.vehicule.visiteTechnique.date_Fin = formData.DateFinVisite;
+
+    // Enregistrez les modifications via le service
+    this.vehiculeService.saveVehicule(this.vehicule).subscribe(
+      () => {
         alert("La modification est faite avec succée");
-        this.router.navigateByUrl("/visualiserVehicule/"+this.code_Voiture)
+        this.router.navigateByUrl("/Vehicules")
       },
-      error:err => {
-        console.log(err);
+      error => {
+        console.error('Erreur lors de la mise à jour du véhicule : ', error);
       }
-    })
+    );
   }
 }

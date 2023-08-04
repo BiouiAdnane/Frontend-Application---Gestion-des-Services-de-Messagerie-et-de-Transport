@@ -11,5 +11,5 @@ export interface Voiture{
   visiteTechnique:Visite_Technique;
   vignette:Vignette;
   carteGrise:Carte_Grise;
-  parking:Parking;
+  //parking:Parking;
 }

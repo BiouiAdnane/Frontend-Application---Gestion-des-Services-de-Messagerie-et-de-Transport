@@ -3,5 +3,4 @@ export interface Assurance {
   type_Assurance: string;
   date_Debut: Date;
   date_Fin:Date;
-
 }
