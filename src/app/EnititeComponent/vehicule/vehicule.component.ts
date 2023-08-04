@@ -64,4 +64,8 @@ export class VehiculeComponent implements OnInit{
   handelVisualiserVehicule(v: Voiture) {
     this.router.navigateByUrl("/visualiserVehicule/"+v.code_Voiture)
   }
+
+  handelNewVehicule() {
+    this.router.navigateByUrl("/newVehicule")
+  }
 }
