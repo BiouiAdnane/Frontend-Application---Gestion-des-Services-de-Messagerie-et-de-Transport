@@ -1,4 +1,4 @@
-<div class="container mt-2">
+<div class="container mt-4">
   <ng-template #failureOrLoading >
     <ng-container *ngIf="errMessage; else loading">
       <div  class="text-danger">
@@ -17,7 +17,13 @@
       <div *ngIf="errMessage">
         {{errMessage}}
       </div>
-      <div class="card-header bg-dark text-white"> <h4>La liste des vehicules :</h4></div>
+
+      <div class="card-header bg-dark text-white ">
+        <div class="row">
+        <h4 class="col-md-9"> <i class="bi bi-list-nested"></i> La liste des vehicules :</h4>
+        <div class="btn bg-dark-subtle  col-md-2 ms-5" (click)="handelNewVehicule()"><i class="bi bi-plus"></i><i class="bi bi-car-front"></i>  Ajouter un vehicule</div>
+        </div>
+      </div>
       <div class="card-body bg-light">
         <div *ngIf="getVehiculeFormGroup">
 
@@ -26,7 +32,6 @@
         </div>
         <table class="table ">
           <thead >
-          <div class="btn bg-dark-subtle mb-3 " (click)="handelNewVehicule()">Ajouter un vehicule</div>
           <tr>
             <th >Code </th><th>Immatriculation</th><th>Marque</th> <th>Model</th><th>Nom Propriétaire</th><th>N° de places</th><th>Date début</th><th>Date fin</th><th>Visualiser</th> <th>Modif</th><th>Supp</th><th>Voyage</th>
           </tr>
@@ -42,7 +47,7 @@
             <td>{{v.carteGrise.date_Debut| date:'yyyy-MM-dd'}}</td>
             <td>{{v.carteGrise.date_Fin| date:'yyyy-MM-dd'}}</td>
             <td class="">
-              <button class="btn btn-success text-white" (click)="handelVisualiserVehicule(v)">
+              <button class="btn bg-secondary bg-gradient text-white bi-text-left" (click)="handelVisualiserVehicule(v)">
                 <i class="bi bi-eye" ></i>
               </button>
             </td>

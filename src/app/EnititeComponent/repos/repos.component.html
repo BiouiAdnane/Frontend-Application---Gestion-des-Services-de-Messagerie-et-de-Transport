@@ -1,4 +1,4 @@
-<div class="container mt-2">
+<div class="container mt-4">
   <ng-template #failureOrLoading >
     <ng-container *ngIf="errMessage; else loading">
       <div  class="text-danger">
@@ -17,14 +17,18 @@
       <div *ngIf="errMessage">
         {{errMessage}}
       </div>
-      <div class="card-header bg-dark text-white">
-        <h3>La liste des différents repos :</h3>
+
+      <div class="card-header bg-dark text-white ">
+        <div class="row">
+        <h3 class="col-md-9"><i class="bi bi-list-nested"></i> La liste des différents repos :</h3>
+        <div class="btn bg-dark-subtle ms-5 col-md-2" (click)="handelNewRepos()"><i class="bi bi-patch-plus "></i> Ajouter un repos</div>
+        </div>
       </div>
       <div class="card-body bg-light">
 
         <table class="table ">
           <thead >
-          <div class="btn bg-dark-subtle mb-3 " (click)="handelNewRepos()">Ajouter un repos</div>
+
           <tr>
             <th >Code Repos</th><th>CIN</th><th>Nom</th><th>Prenom</th> <th>N° de telephone</th><th>Date début du repos</th><th>Date fin du repos</th><th>Supp</th>
           </tr>

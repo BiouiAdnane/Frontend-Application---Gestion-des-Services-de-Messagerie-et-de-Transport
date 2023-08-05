@@ -1,4 +1,4 @@
-<div class="container mt-2">
+<div class="container mt-4">
   <ng-template #failureOrLoading >
     <ng-container *ngIf="errMessage; else loading">
       <div  class="text-danger">
@@ -49,8 +49,8 @@
             <td class="text-center">{{c.permis.typePermisList}}</td>
             <td>{{c.adresse}}</td>
             <td>{{c.date_Naissance | date:'yyyy-MM-dd'}}</td>
-            <td class="">
-              <button class="btn bg-secondary bg-gradient text-white" (click)="handledVisualiserConducteur(c)">
+            <td>
+              <button class="btn bg-secondary bg-gradient text-white bi-text-left" (click)="handledVisualiserConducteur(c)">
                 <i class="bi bi-eye" ></i>
               </button>
             </td>
