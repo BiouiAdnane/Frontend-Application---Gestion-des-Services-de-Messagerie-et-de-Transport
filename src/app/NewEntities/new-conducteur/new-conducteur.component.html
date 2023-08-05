@@ -1,7 +1,6 @@
 <div class="container">
   <form [formGroup]="newConducteurFormGroup">
     <div class="row">
-      <!-- Colonne gauche : Données du conducteur -->
       <div class="col col-md-6 mt-2">
         <div class="card">
           <div class="card-header bg-dark text-white text-center"><i class="bi bi-person-lines-fill"></i>
@@ -46,7 +45,7 @@
             <div class="mb-4 row">
               <label class="form-label col-md-4">Numéro de Tel:</label>
               <div class="col-md-6">
-                <input type="text" formControlName="numTel" class="form-control text-center bg-light"placeholder="06 00 00 00 00">
+                <input type="text" formControlName="numTel" class="form-control text-center bg-light" placeholder="06 00 00 00 00 ">
               </div>
             </div>
           </div>
@@ -57,7 +56,6 @@
         </div>
       </div>
 
-      <!-- Colonne droite : Informations du permis -->
       <div class="col col-md-6 mt-2">
         <div class="card1 bg-light border-2">
           <div class="card-header bg-black text-white text-center"><i class="bi bi-person-vcard-fill text-right-with-space"></i>
@@ -66,7 +64,7 @@
             <div class="details">
               <div class="detail-row">
                 <p class="label">Numéro de permis :</p>
-                <input type="text" formControlName="num_Permis" class="form-control value text-center bg-light mb-1" placeholder="N° de permis">
+                <input type="text" formControlName="num_Permis" class="form-control value text-center bg-light mb-1" placeholder="00-000000">
               </div>
               <div class="detail-row">
                 <p class="label">Date de délivrance :</p>
