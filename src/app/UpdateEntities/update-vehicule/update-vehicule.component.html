@@ -3,21 +3,22 @@
   <div class="row">
     <div class="col-md-6">
 
-      <div class="card mt-4">
+      <div class="card mt-1">
         <div class="card-header bg-black text-white">
           <h4>Carte Grise :</h4>
         </div>
         <div class="card-body bg-light">
-          <div class=" row ">
+          <div class=" row mb-1">
             <label class="form-label col-md-4 pt-0">Immatriculation :</label>
             <div class="col-md-6 offset-1">
-              <input type="text" formControlName="ImmatCarteGrise" class="form-control text-center" readonly>
+              <input type="text" formControlName="ImmatCarteGrise" class="form-control text-center bg-dark-subtle" readonly>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <label class="form-label col-md-4 pt-0">Type permis nécessaire :</label>
             <div class="col-md-6 offset-1">
-              <select formControlName="typePermisVoiture" class="form-control text-center form-select">
+              <select formControlName="typePermisVoiture" class="form-control text-center form-select rounded-5 "  >
+                <optgroup label="Sélectionner la catégorie  "></optgroup>
                 <option value="AM">AM</option>
                 <option value="A1">A1</option>
                 <option value="A">A</option>
@@ -30,50 +31,51 @@
               </select>
             </div>
           </div>
-          <div class=" row">
+          <div class=" row mb-1">
             <label class="form-label col-md-4">Marque :</label>
             <div class="col-md-6 offset-1">
               <input type="text" formControlName="MarqueCarteGrise" class="form-control text-center  ">
             </div>
           </div>
-          <div class=" row">
+          <div class=" row mb-1">
             <label class="form-label col-md-4">Model :</label>
             <div class="col-md-6 offset-1">
               <input type="text" formControlName="ModelCarteGrise" class="form-control text-center  ">
             </div>
           </div>
-          <div class=" row">
+          <div class=" row mb-1">
             <label class="form-label col-md-4">Nombre de place :</label>
             <div class="col-md-6 offset-1">
               <input type="number" formControlName="NbPlaceCarteGrise" class="form-control text-center  ">
             </div>
             </div>
-          <div class=" row">
+          <div class=" row mb-1">
             <label class="form-label col-md-4">Nom propriétaire :</label>
             <div class="col-md-6 offset-1">
               <input type="text" formControlName="ProprietaireCarteGrise" class="form-control text-center  ">
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-1">
             <label class="form-label col-md-4 pt-0">Type carburant :</label>
             <div class="col-md-6 offset-1">
-              <select formControlName="CarburantCarteGrise" class="form-control text-center form-select">
+              <select formControlName="CarburantCarteGrise" class="form-control text-center form-select rounded-5">
+                <optgroup label="Sélectionner le type du carburant"></optgroup>
                 <option value="Diesel">Diesel</option>
                 <option value="Essence">Essence</option>
-                <option value="GPL">GPL</option>
-                <option value="GNC">GNC</option>
+                <option value="GPL">GPL (Gaz de Pétrole Liquéfiés)</option>
+                <option value="GNC">GNC (Gaz Naturel comprimé)</option>
                 <option value="Electricité">Electricité</option>
                 <option value="Autre">Autre</option>
               </select>
             </div>
           </div>
-          <div class=" row">
+          <div class=" row mb-1">
             <label class="form-label col-md-4">Date début :</label>
             <div class="col-md-6 offset-1">
               <input type="date" formControlName="DateDebutCarteGrise" class="form-control text-center  ">
             </div>
           </div>
-          <div class=" row">
+          <div class=" row ">
             <label class="form-label col-md-4">Date d'éxpiration :</label>
             <div class="col-md-6 offset-1">
               <input type="date" formControlName="DateFinCarteGrise" class="form-control text-center  ">
@@ -82,18 +84,18 @@
         </div>
 
       </div>
-      <div class="card mt-4">
+      <div class="card mt-2">
         <div class="card-header bg-black text-white">
           <h4>Vignette :</h4>
         </div>
         <div class="card-body bg-light">
-          <div class=" row">
+          <div class=" row mb-1">
             <label class="form-label col-md-4">Code vignette :</label>
             <div class="col-md-6 offset-1">
-              <input type="text" formControlName="CodeVignette" class="form-control text-center  " readonly>
+              <input type="text" formControlName="CodeVignette" class="form-control text-center  bg-dark-subtle" readonly>
             </div>
           </div>
-          <div class=" row">
+          <div class=" row mb-1">
             <label class="form-label col-md-4">Date début :</label>
             <div class="col-md-6 offset-1">
               <input type="date" formControlName="DateDebutVignette" class="form-control text-center  ">
@@ -111,26 +113,26 @@
 
     <div class="col-md-6">
 
-      <div class="card mt-3">
+      <div class="card mt-4">
         <div class="card-header bg-black text-white">
           <h4>Assurance :</h4>
         </div>
         <div class="card-body bg-light">
-          <div class=" row">
+          <div class=" row mb-2">
             <label class="form-label col-md-4">Code assurance :</label>
             <div class="col-md-6 offset-1">
-              <input type="text" formControlName="CodeAssurance" class="form-control text-center  " readonly>
+              <input type="text" formControlName="CodeAssurance" class="form-control text-center  bg-dark-subtle" readonly>
             </div>
           </div>
 
-          <div class=" row">
+          <div class=" row mb-2">
             <label class="form-label col-md-4">Type assurance :</label>
             <div class="col-md-6 offset-1">
               <input type="text" formControlName="TypeAssurance" class="form-control text-center  ">
             </div>
           </div>
 
-          <div class=" row">
+          <div class=" row mb-2">
             <label class="form-label col-md-4">Date début :</label>
             <div class="col-md-6 offset-1">
               <input type="date" formControlName="dateDebutAssurance" class="form-control text-center  ">
@@ -151,24 +153,25 @@
           <h4>Visite Technique :</h4>
         </div>
         <div class="card-body bg-light">
-          <div class=" row">
+          <div class=" row mb-2">
             <label class="form-label col-md-4">Code visite technique :</label>
             <div class="col-md-6 offset-1">
-              <input type="text" formControlName="CodeVisite" class="form-control text-center  " readonly>
+              <input type="text" formControlName="CodeVisite" class="form-control text-center  bg-dark-subtle" readonly>
             </div>
           </div>
 
 
-          <div class="row">
+          <div class="row mb-2">
             <label class="form-label col-md-4 pt-0">Etat du véhicule :</label>
             <div class="col-md-6 offset-1">
-              <select formControlName="EtatVoiture" class="form-control text-center form-select">
+              <select formControlName="EtatVoiture" class="form-control text-center form-select rounded-5">
+                <optgroup label="Sélectionner l'état du vehicule"></optgroup>
                 <option value="Conforme">✓ Conforme aux normes</option>
                 <option value="Non_Conforme">✘ Non Conforme</option>
               </select>
             </div>
           </div>
-          <div class=" row">
+          <div class=" row mb-2">
             <label class="form-label col-md-4">Date début :</label>
             <div class="col-md-6 offset-1" >
               <input type="date" formControlName="DateDebutVisite" class="form-control text-center  ">
@@ -184,8 +187,8 @@
         </div>
       </div>
 
-      <div class="d-grid col-md-6 offset-3">
-        <button class="btn btn-dark mt-3">Enregistrer</button>
+      <div class="d-grid col-md-6 offset-3 mt-2">
+        <button class="btn btn-dark mt-3">Enregistrer les modifications</button>
       </div>
 
 

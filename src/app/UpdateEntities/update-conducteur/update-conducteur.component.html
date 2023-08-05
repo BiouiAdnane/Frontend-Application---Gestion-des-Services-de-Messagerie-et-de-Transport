@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col col-md-6 mt-5">
       <div class="card">
-        <div class="card-header bg-dark text-white text-center ">Modification des données du conducteur :<strong>{{conducteur.prenom}}  {{conducteur.nom}}</strong></div>
+        <div class="card-header bg-dark text-white text-center "><i class="bi bi-person-lines-fill"></i>
+          Modification des données du conducteur :<strong>{{conducteur.prenom}}  {{conducteur.nom}}</strong></div>
         <div class="card-body">
           <form *ngIf="form" [formGroup]="updateConducteurFormGroup" (ngSubmit)="handleUpdateConducteur()" >
 
@@ -55,7 +56,7 @@
             </div>
 
             <div class="d-grid col-md-6 offset-3">
-              <button class="btn btn-dark mt-3 ">Enregistrer</button></div>
+              <button class="btn btn-dark mt-3 ">Enregistrer les modifications</button></div>
           </form>
         </div>
       </div>
@@ -64,7 +65,8 @@
 
     <div class="col col-md-6  mt-2">
       <div class="card1 bg-light border-2">
-        <div class="card-header bg-black text-white text-center">Informations du permis de conduire</div>
+        <div class="card-header bg-black text-white text-center"><i class="bi bi-person-vcard-fill text-right-with-space"></i>
+          Informations du permis de conduire</div>
         <div class="pvc-card offset-2 mt-2 ">
           <div class="card-header bg-dark-subtle text-black text-center">
             <h4>{{conducteur.nom}} {{conducteur.prenom}}</h4>

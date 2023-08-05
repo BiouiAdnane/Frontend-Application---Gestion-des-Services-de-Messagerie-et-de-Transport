@@ -17,7 +17,8 @@
       <div *ngIf="errMessage">
         {{errMessage}}
       </div>
-      <div class="card-header bg-dark text-white"> <h4>La liste des conducteurs :</h4></div>
+      <div class="card-header bg-dark text-white">
+        <h4> <i class="bi bi-list-nested"></i> La liste des conducteurs :</h4></div>
       <div class="card-body bg-light">
         <div *ngIf="searchConducteurFormGroup">
           <form [formGroup]="searchConducteurFormGroup" (ngSubmit)="handelSearchConducteur()">
@@ -49,7 +50,7 @@
             <td>{{c.adresse}}</td>
             <td>{{c.date_Naissance | date:'yyyy-MM-dd'}}</td>
             <td class="">
-              <button class="btn btn-success text-white" (click)="handledVisualiserConducteur(c)">
+              <button class="btn bg-secondary bg-gradient text-white" (click)="handledVisualiserConducteur(c)">
                 <i class="bi bi-eye" ></i>
               </button>
             </td>
@@ -60,8 +61,8 @@
             </td>
 
             <td >
-              <button class="btn btn-primary " (click)="handelVoyageConducteur(c)">
-                <i class="bi-car-front"></i>
+              <button class="btn btn-dark " (click)="handelVoyageConducteur(c)">
+                <i class="bi-list-columns-reverse"></i>
               </button>
             </td>
           </tr>
