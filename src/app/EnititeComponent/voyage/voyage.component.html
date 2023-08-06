@@ -1,1 +1,85 @@
-<p>voyage works!</p>
+<div class="ms-3 me-3 mt-4">
+  <ng-template #failureOrLoading >
+    <ng-container *ngIf="errMessage; else loading">
+      <div  class="text-danger">
+        {{errMessage}}
+      </div>
+    </ng-container>
+    <ng-template #loading >
+      <div class="text-center " id="loading">
+        <div class="spinner-border text-primary" style="width: 6rem; height: 6rem;" role="status">
+        </div></div>
+    </ng-template>
+
+  </ng-template>
+  <ng-container *ngIf="voyages | async as listVoyages; else failureOrLoading">
+    <div class="card ">
+      <div *ngIf="errMessage">
+        {{errMessage}}
+      </div>
+      <div class="card-header bg-dark text-white">
+        <h4> <i class="bi bi-list-nested"></i> La liste des voyages :</h4></div>
+      <div class="card-body bg-light">
+        <div *ngIf="searchVoyageFormGroup">
+          <form [formGroup]="searchVoyageFormGroup" (ngSubmit)="handelSearchVoyage()">
+            <div class="input-group">
+              <label class="input-group-text bg-dark text-white">Nom de la ville de départ ou d'arrivée:</label>
+              <input type="text" formControlName="keyword" class="form-control">
+              <button class="btn bg-dark-subtle">
+                <div class="bi bi-search">Chercher</div>
+              </button>
+              <button routerLink="/new" class="btn bg-dark text-white ms-5">
+                <div> <i class="bi bi-person-add me-2"></i>Nouveau Voyage</div>
+              </button>
+            </div>
+          </form>
+        </div>
+        <table class="table ">
+          <thead >
+          <tr>
+            <th >Code voyage</th><th>Nom </th><th>Prenom </th> <th>CIN</th><th>Type de voyage</th><th>ville de départ</th>
+            <th>ville d'arrivée</th><th>Date de départ</th><th>Date d'arrivée</th><th>Visualiser véhicule</th><th>Visualiser conducteur</th><th>Supp</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let v of voyages |async ">
+            <td >{{v.codeVoyage}}</td>
+            <td>{{v.conducteur.nom}}</td>
+            <td>{{v.conducteur.prenom}}</td>
+            <td >{{v.conducteur.cin}}</td>
+            <td>{{v.type_Voyage}}</td>
+            <td>{{v.ville_Depart}}</td>
+            <td>{{v.ville_Arrive}}</td>
+            <td >{{v.date_Debut |date :'dd - MM - yyyy'}}</td>
+            <td>{{v.date_Fin |date :'dd - MM - yyyy'}}</td>
+            <td>
+              <div class="ms-5">
+              <button class="btn bg-secondary bg-gradient text-white bi-text-left" (click)="handledVisualiserVehicule(v.voiture)">
+                <i class="bi bi-car-front" ></i>
+              </button>
+              </div>
+            </td>
+
+
+            <td>
+              <div class="ms-5">
+              <button class="btn bg-secondary bg-gradient text-white bi-text-left" (click)="handledVisualiserConducteur(v.conducteur)">
+                <i class="bi bi-person" ></i>
+              </button>
+              </div>
+            </td>
+            <td>
+              <button class="btn btn-danger" >
+                <i class="bi bi-trash" ></i>
+              </button>
+            </td>
+
+
+          </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </ng-container>
+</div>
