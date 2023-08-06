@@ -39,16 +39,14 @@ export class VoyageComponent implements OnInit{
     );
   }
 
-  /*
-
-  handledDeleteConducteur(c: Conducteur) {
-    let conf=confirm("Voulez vous supprimer ce conducteur ?")
+  handledDeleteVoyage(v: Voyage) {
+    let conf=confirm("Voulez vous supprimer ce voyage ?")
     if (!conf) return;
-    this.conducteurService.deleteConducteur(c.cin).subscribe({
+    this.voyageService.deleteVoyage(v.codeVoyage).subscribe({
       next:(data)=>{
-        this.conducteur=this.conducteur.pipe(
+        this.voyages=this.voyages.pipe(
           map(data=>{
-            let index=data.indexOf(c);
+            let index=data.indexOf(v);
             data.slice(index, 1);
             return data;
           })
@@ -58,7 +56,7 @@ export class VoyageComponent implements OnInit{
     })
 
 
-  }*/
+  }
 
   handledVisualiserConducteur(c: Conducteur) {
     this.router.navigateByUrl("/visualiserConducteur/"+c.cin)
