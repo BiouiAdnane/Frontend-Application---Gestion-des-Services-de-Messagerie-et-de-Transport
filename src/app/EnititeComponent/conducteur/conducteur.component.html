@@ -37,7 +37,7 @@
         <table class="table ">
           <thead >
           <tr>
-            <th >Matricule</th><th>Nom</th><th>Prenom</th> <th>CIN</th><th>Les catégories du permis</th><th>Adresse</th><th>Date de naissance</th><th>Visualiser</th><th>Supp</th><th>Voyage</th>
+            <th >Matricule</th><th>Nom</th><th>Prenom</th> <th>CIN</th><th>N° de tel</th><th>N° de permis</th><th>Les catégories du permis</th><th>Visualiser</th><th>Supp</th><th>Voyage</th>
           </tr>
           </thead>
           <tbody>
@@ -46,9 +46,9 @@
             <td>{{c.nom}}</td>
             <td>{{c.prenom}}</td>
             <td>{{c.cin}}</td>
-            <td class="text-center">{{c.permis.typePermisList}}</td>
-            <td>{{c.adresse}}</td>
-            <td>{{c.date_Naissance | date:'yyyy-MM-dd'}}</td>
+            <td>{{c.numTel}}</td>
+            <td>{{c.permis.num_Permis}}</td>
+            <td >{{c.permis.typePermisList.join(' - ')}}</td>
             <td>
               <button class="btn bg-secondary bg-gradient text-white bi-text-left" (click)="handledVisualiserConducteur(c)">
                 <i class="bi bi-eye" ></i>

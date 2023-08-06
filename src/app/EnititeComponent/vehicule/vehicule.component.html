@@ -33,7 +33,7 @@
         <table class="table ">
           <thead >
           <tr>
-            <th >Code </th><th>Immatriculation</th><th>Marque</th> <th>Model</th><th>Nom Propriétaire</th><th>N° de places</th><th>Date début</th><th>Date fin</th><th>Visualiser</th> <th>Modif</th><th>Supp</th><th>Voyage</th>
+            <th >Code </th><th>Immatriculation</th><th>Marque</th> <th>Model</th><th>Type de permis requis</th><th>N° de places</th><th>Type de carburant</th><th>Etat du véhicule</th><th>Visualiser</th> <th>Modif</th><th>Supp</th><th>Voyage</th>
           </tr>
           </thead>
           <tbody>
@@ -42,10 +42,10 @@
             <td>{{v.carteGrise.num_Immatricualtion}}</td>
             <td>{{v.carteGrise.marque}}</td>
             <td>{{v.carteGrise.model}}</td>
-            <td>{{v.carteGrise.nom_Proprietaire}}</td>
-            <td class="text-center">{{v.carteGrise.nombre_Place}}</td>
-            <td>{{v.carteGrise.date_Debut| date:'yyyy-MM-dd'}}</td>
-            <td>{{v.carteGrise.date_Fin| date:'yyyy-MM-dd'}}</td>
+            <td class="text-center">{{v.typePermisVoiture}}</td>
+            <td class="text-center"><strong>{{v.carteGrise.nombre_Place}} </strong> places</td>
+            <td class="text-center">{{v.carteGrise.typeCarburant}}</td>
+            <td>{{v.visiteTechnique.etat_Voiture.includes('Non_Conforme') ? '✘ Non Conforme' : '✓ Conforme'}}</td>
             <td class="">
               <button class="btn bg-secondary bg-gradient text-white bi-text-left" (click)="handelVisualiserVehicule(v)">
                 <i class="bi bi-eye" ></i>
