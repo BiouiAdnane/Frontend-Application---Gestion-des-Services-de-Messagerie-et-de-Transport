@@ -13,6 +13,7 @@ import {VehiculeComponent} from "./EnititeComponent/vehicule/vehicule.component"
 import {UpdateVehiculeComponent} from "./UpdateEntities/update-vehicule/update-vehicule.component";
 import {VisualiserVehiculeComponent} from "./EnititeComponent/visualiser-vehicule/visualiser-vehicule.component";
 import {NewVehiculeComponent} from "./NewEntities/new-vehicule/new-vehicule.component";
+import {VoyageComponent} from "./EnititeComponent/voyage/voyage.component";
 
 const routes: Routes = [
   {path :"Conducteurs", component: ConducteurComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:"visualiserVehicule/:code_Voiture",component: VisualiserVehiculeComponent},
   {path:"newVehicule",component: NewVehiculeComponent},
 
+  {path:"Voyages", component: VoyageComponent},
 
   {path:"Permis", component: PermisComponent},
   {path:"NewPermis", component: NewPermisComponent},

@@ -20,6 +20,7 @@ import { VehiculeComponent } from './EnititeComponent/vehicule/vehicule.componen
 import { VisualiserVehiculeComponent } from './EnititeComponent/visualiser-vehicule/visualiser-vehicule.component';
 import { UpdateVehiculeComponent } from './UpdateEntities/update-vehicule/update-vehicule.component';
 import { NewVehiculeComponent } from './NewEntities/new-vehicule/new-vehicule.component';
+import { VoyageComponent } from './EnititeComponent/voyage/voyage.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NewVehiculeComponent } from './NewEntities/new-vehicule/new-vehicule.co
     VehiculeComponent,
     VisualiserVehiculeComponent,
     UpdateVehiculeComponent,
-    NewVehiculeComponent
+    NewVehiculeComponent,
+    VoyageComponent
   ],
     imports: [
         BrowserModule,
