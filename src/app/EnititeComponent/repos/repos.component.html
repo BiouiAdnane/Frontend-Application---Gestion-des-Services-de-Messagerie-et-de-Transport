@@ -40,8 +40,8 @@
             <td>{{r.conducteur.nom}}</td>
             <td>{{r.conducteur.prenom}}</td>
             <td >{{r.conducteur.numTel}}</td>
-            <td>{{r.date_Debut| date:'dd / MM / yyyy'}}</td>
-            <td>{{r.date_Fin | date:'dd / MM / yyyy'}}</td>
+            <td>{{r.date_Debut|date:'dd - MM - yyyy'}}</td>
+            <td>{{r.date_Fin |date:'dd - MM - yyyy'}}</td>
 
             <td>
               <button class="btn btn-danger" (click)="handledDeleteRepos(r)">

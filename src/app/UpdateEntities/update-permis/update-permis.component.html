@@ -24,7 +24,7 @@
             <label class="form-label">Adresse :<strong class="text-right-with-space">{{ conducteur.adresse }}</strong></label>
           </div>
           <div class="mb-3">
-            <label class="form-label">Date de naissance :<strong class="text-right-with-space">{{ conducteur.date_Naissance }}</strong></label>
+            <label class="form-label">Date de naissance :<strong class="text-right-with-space">{{ conducteur.date_Naissance |date:'dd - MM - yyyy'}}</strong></label>
           </div>
           <div class="mb-3">
             <label class="form-label">Numéro de téléphone :<strong class="text-right-with-space">{{ conducteur.numTel }}</strong></label>

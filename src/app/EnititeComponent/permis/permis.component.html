@@ -45,8 +45,8 @@
           <tbody>
           <tr *ngFor="let p of permis |async ">
             <td>{{p.num_Permis}}</td>
-            <td>{{p.date_Delivrance| date:'yyyy / MM / dd '}}</td>
-            <td>{{p.date_Fin| date:'yyyy / MM / dd '}}</td>
+            <td>{{p.date_Delivrance|date:'dd - MM - yyyy'}}</td>
+            <td>{{p.date_Fin|date:'dd - MM - yyyy'}}</td>
             <td>{{p.lieu_Delivrance}}</td>
             <td>{{p.typePermisList}}</td>
             <td >
