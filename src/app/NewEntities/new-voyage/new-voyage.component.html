@@ -1,1 +1,110 @@
-<p>new-voyage works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8   mt-5">
+  <div class="card">
+    <div class="card-header bg-dark text-white"><h3><i class="bi bi-patch-plus "> </i> Organiser un voyage</h3></div>
+    <div class="card-body">
+      <form [formGroup]="newVoayageFormGroup" (ngSubmit)="handleSaveVoyage()" method="post">
+        <div class="mb-4 mt-2 row">
+          <label class="form-label col-md-4">Type de voyage :</label>
+          <div class="col-md-6">
+            <select formControlName="typeVoyage" class="form-control  form-select rounded-5 " >
+              <optgroup label="Transport du Personne"></optgroup>
+              <option value="B">Voiture</option>
+              <option value="EB">Voiture + porte bagage</option>
+              <option value="D"> Mini-Bus / Bus</option>
+              <option value="ED">Bus + porte bagage</option>
+              <optgroup label="Transport du Marchandise"></optgroup>
+              <option value="B">Camionette</option>
+              <option value="C">Camion</option>
+              <option value="EC">Camion Remorque</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-4 mt-2 row">
+          <label class="form-label col-md-4">Date début du repos :</label>
+          <div class="col-md-6">
+            <input type="date" formControlName="date_Debut" class="form-control text-center bg-light">
+          </div>
+        </div>
+        <hr>
+        <div class="mb-4 mt-4 row">
+          <label class="form-label col-md-4">Date fin du repos :</label>
+          <div class="col-md-6">
+            <input type="date" formControlName="date_Fin" class="form-control text-center bg-light">
+          </div>
+        </div>
+
+        <hr>
+
+        <hr>
+        <!-- Modified part: Conducteur dropdown -->
+        <div class="mb-4 mt-4 row">
+          <label class="form-label col-md-4">Le conducteur:</label>
+          <div class="col-md-6 ">
+            <select formControlName="conducteur" class="form-control bg-light ">
+              <option>
+
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="d-grid col-md-6 offset-3">
+          <button class="btn btn-dark">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+    </div>
+  <div class="col-md-4 mt-5">
+
+
+    <div  class="alert alert-info text-info " role="alert">
+      <h4 >
+        <img src="assets/info1.png" width="30px" class="mb-1">
+        Informations
+      </h4>
+      <h5 >
+        Voici les informations des différents type de transport .
+      </h5>
+      <div class="table-container mt-2 ">
+        <table >
+          <thead>
+          <td></td>
+          <td class="border-2  p-2 text-center"><h5>Véhicule</h5></td>
+          <td class=" border-2 p-2 text-center"><h5>Nbr de personnes</h5></td>
+
+          </thead>
+          <tbody class="border-2 text-black">
+          <tr class="border-2">
+            <td class="ps-2 pe-2"><img src="assets/B.png" height="30px"></td>
+            <td class="border-2"><h6 class="text-center">Voiture</h6></td>
+            <td class="border-2"><h6>Nbr max <strong>6</strong> personnes</h6></td>
+          </tr>
+
+          <tr class="border-2">
+            <td class="ps-2 pe-2"><img src="assets/EB.png" height="30px"></td>
+            <td class="border-2"><h6 class="text-center">Voiture + Porte bagage</h6></td>
+            <td class="border-2"><h6>Nbr max <strong>6</strong> personnes</h6><h6>Plus porte bagage</h6></td>
+          </tr>
+
+          <tr class="border-2">
+            <td class="ps-2 pe-2"><img src="assets/D.png" height="30px"></td>
+            <td class="border-2"><h6 class="text-center">Bus /</h6><h6 class="text-center">Mini-Bus</h6></td>
+            <td class="border-2"><h6>Nbr de personnes entre <strong>13</strong> et <strong>52</strong></h6></td>
+          </tr>
+          <tr class="border-2">
+            <td class="ps-2 pe-2"><h6><img src="assets/E.png" height="20px"><img src="assets/D.png" height="20px"></h6></td>
+            <td class="border-2"><h6 class="text-center">Bus +</h6><h6 class="text-center">Porte bagage</h6></td>
+            <td class="border-2"><h6>Nbr de personnes entre <strong>13</strong> et <strong>52</strong></h6></td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+

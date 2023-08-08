@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {FormGroup} from "@angular/forms";
+import {Conducteur} from "../../EnititeComponent/Models/Conducteur";
 
 @Component({
   selector: 'app-new-voyage',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-voyage.component.css']
 })
 export class NewVoyageComponent {
+  newVoayageFormGroup!: FormGroup;
+  conducteurs!:Conducteur;
 
+  handleSaveVoyage() {
+
+  }
 }
