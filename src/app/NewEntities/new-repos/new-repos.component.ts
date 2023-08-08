@@ -35,7 +35,7 @@ export class NewReposComponent implements OnInit {
     this.handelGetListConducteurs();
   }
 
-// Example method accessing selected conductor information
+
   someOtherMethod(): void {
     if (this.selectedConducteur) {
       console.log("Selected Conductor Information:", this.selectedConducteur);
