@@ -1,13 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Conducteur} from "../../EnititeComponent/Models/Conducteur";
-import {ReposService} from "../../Services/repos.service";
 import {Router} from "@angular/router";
-import {ConducteurService} from "../../Services/conducteur.service";
 import {VoyageService} from "../../Services/voyage.service";
 import {DispoConformeService} from "../../Services/dispo-conforme.service";
-import {Observable} from "rxjs";
 import {Voiture} from "../../EnititeComponent/Models/Voiture";
+import {TypeVoyage, Voyage} from "../../EnititeComponent/Models/Voyage";
 
 @Component({
   selector: 'app-new-voyage',
@@ -23,13 +21,19 @@ export class NewVoyageComponent implements OnInit{
   dateFinSelected!:Date;
   ListConducteur!:Array<Conducteur>;
   ListVehicule!:Array<Voiture>;
+  SelectedConducteur: Conducteur | null = null;
+  conducteurs: Conducteur[] = [];
+  SelectedVoiture:Voiture| null =null;
+  voitures: Voiture[] = [];
+
+  TypeVoyageSelected!:TypeVoyage;
 
   constructor(private fb: FormBuilder, private voyageService: VoyageService, private router: Router, private dispoConformeService: DispoConformeService,
   ) { }
 
   ngOnInit(): void {
     this.newVoayageFormGroup = this.fb.group({
-      code_codeVoyage: 0,
+      codeVoyage: 0,
       ville_Depart: ['', Validators.required],
       ville_Arrive: ['', Validators.required],
       date_Debut: ['', Validators.required],
@@ -58,6 +62,10 @@ export class NewVoyageComponent implements OnInit{
       this.ConducteursDispoConforme();
       this.VehiculesDispoConforme();
     });
+
+    this.newVoayageFormGroup.get('type_Voyage')!.valueChanges.subscribe(value => {
+      this.TypeVoyageSelected = value;
+    });
   }
 
   ConducteursDispoConforme() {
@@ -77,6 +85,47 @@ export class NewVoyageComponent implements OnInit{
     }
   }
   handleSaveVoyage() {
+    if (this.newVoayageFormGroup.invalid) {
+      alert("Veuillez remplir correctement tous les champs du formulaire.");
+      return;
+    }
+    const selectedCin = this.newVoayageFormGroup.get('conducteur')?.value;
+    this.SelectedConducteur = this.conducteurs.find((c) => c.cin === selectedCin) || null;
+
+    if (!this.SelectedConducteur) {
+      alert("Le conducteur sélectionné n'a pas été trouvé dans la liste des conducteurs.");
+      return;
+    }
+    const selectedCodeVoiture = this.newVoayageFormGroup.get('voiture')?.value;
+    this.SelectedVoiture = this.voitures.find((v) => v.code_Voiture === selectedCodeVoiture) || null;
+
+    if (!this.SelectedVoiture) {
+      alert("Le véhicule sélectionné n'a pas été trouvé dans la liste des véhicules.");
+      return;
+    }
+
+
+    const data: Voyage = {
+      codeVoyage: 0,
+      ville_Depart: this.newVoayageFormGroup.get('ville_Depart')?.value,
+      ville_Arrive: this.newVoayageFormGroup.get('ville_Arrive')?.value,
+      date_Debut: this.newVoayageFormGroup.get('date_Debut')?.value,
+      date_Fin: this.newVoayageFormGroup.get('date_Fin')?.value,
+      nombre_Voyageur: this.newVoayageFormGroup.get('nombre_Voyageur')?.value,
+      type_Voyage: this.newVoayageFormGroup.get('type_Voyage')?.value,
+      conducteur: this.SelectedConducteur,
+      voiture: this.SelectedVoiture,
+    };
+
+    this.voyageService.saveVoyage(data).subscribe({
+      next: (data) => {
+        alert("L'enregistrement est fait avec succès");
+        this.router.navigateByUrl('/Voyages');
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
 
   }
 

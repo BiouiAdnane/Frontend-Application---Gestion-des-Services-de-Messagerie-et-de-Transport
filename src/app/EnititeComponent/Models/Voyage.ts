@@ -12,7 +12,7 @@ export interface Voyage {
   conducteur:Conducteur;
   voiture:Voiture;
 }
-enum TypeVoyage {
+export enum TypeVoyage {
   Transport_Marchandise="Transport_Marchandise",
   Transport_Personne="Transport_Personne",
   Transport_Livraison="Transport_Livraison",
