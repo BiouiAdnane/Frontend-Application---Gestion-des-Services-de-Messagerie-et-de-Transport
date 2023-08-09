@@ -54,7 +54,7 @@
               <div class="col-md-6 ">
                 <select formControlName="conducteur" class="form-control bg-light ">
                   <option *ngFor="let conducteur of ListConducteur" [value]="conducteur.cin">
-                    {{conducteur.prenom}} {{conducteur.nom}}
+                    {{conducteur.matricule}} -- {{conducteur.prenom}} {{conducteur.nom}}
                   </option>
                 </select>
               </div>
@@ -65,10 +65,11 @@
               <div class="col-md-6 ">
                 <select formControlName="voiture" class="form-control bg-light ">
                   <option *ngFor="let vehicule of ListVehicule" [value]="vehicule.code_Voiture">
-                    {{vehicule.code_Voiture}} {{vehicule.carteGrise.marque}}
+                    {{vehicule.code_Voiture}} -- {{vehicule.carteGrise.marque}} {{vehicule.carteGrise.model}} / {{vehicule.carteGrise.nombre_Place}} places
                   </option>
                 </select>
               </div>
+              <div><h5 class="text-danger" *ngIf="!ListVehicule">blala</h5></div>
             </div>
 
             <div class="d-grid col-md-6 offset-3">
