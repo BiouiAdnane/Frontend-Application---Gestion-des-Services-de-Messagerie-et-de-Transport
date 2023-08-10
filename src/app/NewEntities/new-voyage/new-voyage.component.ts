@@ -6,6 +6,8 @@ import {VoyageService} from "../../Services/voyage.service";
 import {DispoConformeService} from "../../Services/dispo-conforme.service";
 import {Voiture} from "../../EnititeComponent/Models/Voiture";
 import {TypeVoyage, Voyage} from "../../EnititeComponent/Models/Voyage";
+import {ConducteurService} from "../../Services/conducteur.service";
+import {VoitureService} from "../../Services/voiture.service";
 
 @Component({
   selector: 'app-new-voyage',
@@ -28,7 +30,8 @@ export class NewVoyageComponent implements OnInit{
 
   TypeVoyageSelected!:TypeVoyage;
 
-  constructor(private fb: FormBuilder, private voyageService: VoyageService, private router: Router, private dispoConformeService: DispoConformeService,
+  constructor(private fb: FormBuilder, private voyageService: VoyageService, private router: Router,private vehiculeService: VoitureService,
+              private dispoConformeService: DispoConformeService,private conducteurService: ConducteurService
   ) { }
 
   ngOnInit(): void {
@@ -66,6 +69,9 @@ export class NewVoyageComponent implements OnInit{
     this.newVoayageFormGroup.get('type_Voyage')!.valueChanges.subscribe(value => {
       this.TypeVoyageSelected = value;
     });
+
+    this.handelGetListConducteurs();
+    this.handelGetListVehicule();
   }
 
   ConducteursDispoConforme() {
@@ -84,6 +90,30 @@ export class NewVoyageComponent implements OnInit{
         });
     }
   }
+
+  handelGetListConducteurs() {
+    this.conducteurService.listConducteur().subscribe(
+      (conducteurs) => {
+        this.conducteurs = conducteurs;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  handelGetListVehicule(){
+    this.vehiculeService.listVehicules().subscribe(
+      (voitures) => {
+        this.voitures = voitures;
+        console.log(voitures)
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
   handleSaveVoyage() {
     if (this.newVoayageFormGroup.invalid) {
       alert("Veuillez remplir correctement tous les champs du formulaire.");
@@ -97,7 +127,7 @@ export class NewVoyageComponent implements OnInit{
       return;
     }
     const selectedCodeVoiture = this.newVoayageFormGroup.get('voiture')?.value;
-    this.SelectedVoiture = this.voitures.find((v) => v.code_Voiture === selectedCodeVoiture) || null;
+    this.SelectedVoiture = this.voitures.find((v) => v.code_Voiture == selectedCodeVoiture) || null;
 
     if (!this.SelectedVoiture) {
       alert("Le véhicule sélectionné n'a pas été trouvé dans la liste des véhicules.");

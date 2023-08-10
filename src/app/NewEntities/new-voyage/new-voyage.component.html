@@ -1,5 +1,4 @@
 <div class="container">
-  {{newVoayageFormGroup.value |json}}
   <div class="row">
     <div class="col-md-8   mt-3">
       <div class="card">
@@ -8,20 +7,18 @@
         <div class="card-body">
           <form [formGroup]="newVoayageFormGroup" (ngSubmit)="handleSaveVoyage()" method="post">
             <div class="row">
-              <label class="form-label col-md-3">Type du voyage :</label>
+              <label class="form-label col-md-3 ">Type du voyage :</label>
 
               <div class="col-md-4">
                 <select formControlName="type_Voyage" class="form-control  form-select rounded-5 ">
-                  <option value="Transport_Personne" >Transport_Personne</option>
-                  <option value="Transport_Livraison">Transport_Livraison</option>
+                  <option value="Transport_Personne" >Transport du Personne</option>
+                  <option value="Transport_Marchandise">Transport du Marchandise</option>
                 </select>
               </div>
-              <div class="col-md-3">Nbr de voyageur :</div>
-              <div class="col-md-2">
-                <input type="number" formControlName="nombre_Voyageur" class="form-control text-center bg-light ">
-              </div>
+              <div class="col-md-3 offset-1">Nombre de voyageurs :</div>
+
             </div>
-            <div class="row">
+            <div class="row mt-1">
               <label class="form-label col-md-3">Type de véhicule :</label>
 
               <div class="col-md-4">
@@ -32,17 +29,21 @@
                   <option value="EB" *ngIf="TypeVoyageSelected==='Transport_Personne'">Voiture + porte bagage</option>
                   <option value="D" *ngIf="TypeVoyageSelected==='Transport_Personne'"> Mini-Bus / Bus</option>
                   <option value="ED" *ngIf="TypeVoyageSelected==='Transport_Personne'">Bus + porte bagage</option>
-                  <optgroup label="Transport du Marchandise" *ngIf="TypeVoyageSelected==='Transport_Livraison'"></optgroup>
-                  <option value="" *ngIf="TypeVoyageSelected==='Transport_Livraison'">--------------------</option>
-                  <option value="B" *ngIf="TypeVoyageSelected==='Transport_Livraison'">Camionette</option>
-                  <option value="C" *ngIf="TypeVoyageSelected==='Transport_Livraison'">Camion</option>
-                  <option value="EC" *ngIf="TypeVoyageSelected==='Transport_Livraison'">Camion Remorque</option>
+                  <optgroup label="Transport du Marchandise" *ngIf="TypeVoyageSelected==='Transport_Marchandise'"></optgroup>
+                  <option value="" *ngIf="TypeVoyageSelected==='Transport_Marchandise'">--------------------</option>
+                  <option value="B" *ngIf="TypeVoyageSelected==='Transport_Marchandise'">Camionette</option>
+                  <option value="C" *ngIf="TypeVoyageSelected==='Transport_Marchandise'">Camion</option>
+                  <option value="EC" *ngIf="TypeVoyageSelected==='Transport_Marchandise'">Camion Remorque</option>
                 </select>
+              </div>
+
+              <div class="col-md-2 offset-2">
+                <input type="number" formControlName="nombre_Voyageur" class="form-control text-center bg-light ">
               </div>
 
             </div>
 
-            <hr>
+            <hr class="mt-2 mb-2 ">
             <div class=" row">
               <label class="form-label col-md-3">Date début du voyage :</label>
               <div class="col-md-3">
@@ -53,7 +54,7 @@
                 <input type="date" formControlName="date_Fin" class="form-control text-center bg-light">
               </div>
             </div>
-            <hr>
+            <hr class="mt-2 mb-2 ">
             <div class="row">
               <label class="form-label col-md-3">Ville de départ :</label>
               <div class="col-md-3">
@@ -64,7 +65,7 @@
                 <input type="text" formControlName="ville_Arrive" class="form-control text-center bg-light">
               </div>
             </div>
-            <hr>
+            <hr class="mt-2 mb-2 ">
             <div class="row">
               <div class="alert alert-info text-info container col-md-11" role="alert" *ngIf="ListConducteur && ListConducteur.length>=1">
                 <h6 class="text-info"><img src="assets/info.png" height="20px" >
@@ -86,7 +87,7 @@
                 </select>
               </div>
             </div>
-            <hr>
+            <hr class="mt-2 mb-2 ">
             <div class="row">
               <div class="alert alert-info text-info container col-md-11" role="alert" *ngIf="ListVehicule && ListVehicule.length>=1">
                 <h6 class="text-info"><img src="assets/info.png" height="20px" >
