@@ -22,6 +22,7 @@ import { UpdateVehiculeComponent } from './UpdateEntities/update-vehicule/update
 import { NewVehiculeComponent } from './NewEntities/new-vehicule/new-vehicule.component';
 import { VoyageComponent } from './EnititeComponent/voyage/voyage.component';
 import { NewVoyageComponent } from './NewEntities/new-voyage/new-voyage.component';
+import { LoginComponent } from './EnititeComponent/login/login.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { NewVoyageComponent } from './NewEntities/new-voyage/new-voyage.componen
     UpdateVehiculeComponent,
     NewVehiculeComponent,
     VoyageComponent,
-    NewVoyageComponent
+    NewVoyageComponent,
+    LoginComponent
   ],
     imports: [
         BrowserModule,

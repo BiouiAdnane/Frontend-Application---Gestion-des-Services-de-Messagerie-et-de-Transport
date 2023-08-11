@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-header bg-dark text-white"><h3><i class="bi bi-patch-plus "> </i> Organiser un voyage</h3>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-light">
           <form [formGroup]="newVoayageFormGroup" (ngSubmit)="handleSaveVoyage()" method="post">
             <div class="row">
               <label class="form-label col-md-3 ">Type du voyage :</label>
@@ -38,7 +38,7 @@
               </div>
 
               <div class="col-md-2 offset-2">
-                <input type="number" formControlName="nombre_Voyageur" class="form-control text-center bg-light ">
+                <input type="number" formControlName="nombre_Voyageur" class="form-control text-center  ">
               </div>
 
             </div>
@@ -47,22 +47,22 @@
             <div class=" row">
               <label class="form-label col-md-3">Date début du voyage :</label>
               <div class="col-md-3">
-                <input type="date" formControlName="date_Debut" class="form-control text-center bg-light">
+                <input type="date" formControlName="date_Debut" class="form-control text-center ">
               </div>
               <label class="form-label col-md-3">Date fin du voyage :</label>
               <div class="col-md-3">
-                <input type="date" formControlName="date_Fin" class="form-control text-center bg-light">
+                <input type="date" formControlName="date_Fin" class="form-control text-center ">
               </div>
             </div>
             <hr class="mt-2 mb-2 ">
             <div class="row">
               <label class="form-label col-md-3">Ville de départ :</label>
               <div class="col-md-3">
-                <input type="text" formControlName="ville_Depart" class="form-control text-center bg-light">
+                <input type="text" formControlName="ville_Depart" class="form-control text-center ">
               </div>
               <label class="form-label col-md-3">Ville d'arrivé :</label>
               <div class="col-md-3">
-                <input type="text" formControlName="ville_Arrive" class="form-control text-center bg-light">
+                <input type="text" formControlName="ville_Arrive" class="form-control text-center ">
               </div>
             </div>
             <hr class="mt-2 mb-2 ">
@@ -80,7 +80,7 @@
               </div>
               <label class="form-label col-md-4">Le conducteur:</label>
               <div class="col-md-6 ">
-                <select formControlName="conducteur" class="form-control bg-light ">
+                <select formControlName="conducteur" class="form-control  ">
                   <option *ngFor="let conducteur of ListConducteur" [value]="conducteur.cin">
                     {{conducteur.matricule}} -- {{conducteur.prenom}} {{conducteur.nom}}
                   </option>
@@ -102,7 +102,7 @@
               </div>
               <label class="form-label col-md-4">Le véhicule:</label>
               <div class="col-md-6 ">
-                <select formControlName="voiture" class="form-control bg-light ">
+                <select formControlName="voiture" class="form-control  ">
                   <option *ngFor="let vehicule of ListVehicule" [value]="vehicule.code_Voiture">
                     {{vehicule.code_Voiture}} -- {{vehicule.carteGrise.marque}} {{vehicule.carteGrise.model}} / {{vehicule.carteGrise.nombre_Place}} places
                   </option>

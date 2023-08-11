@@ -15,8 +15,11 @@ import {VisualiserVehiculeComponent} from "./EnititeComponent/visualiser-vehicul
 import {NewVehiculeComponent} from "./NewEntities/new-vehicule/new-vehicule.component";
 import {VoyageComponent} from "./EnititeComponent/voyage/voyage.component";
 import {NewVoyageComponent} from "./NewEntities/new-voyage/new-voyage.component";
+import {LoginComponent} from "./EnititeComponent/login/login.component";
 
 const routes: Routes = [
+  {path:"Login" , component:LoginComponent},
+
   {path :"Conducteurs", component: ConducteurComponent},
   {path:"updateConducteur/:cin", component: UpdateConducteurComponent},
   {path:"visualiserConducteur/:cin",component: VisualiserConducteurComponent},
