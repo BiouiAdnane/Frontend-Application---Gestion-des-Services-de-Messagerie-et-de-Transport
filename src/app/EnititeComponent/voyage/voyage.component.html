@@ -1,13 +1,17 @@
 <div class="ms-3 me-3 mt-4">
   <ng-template #failureOrLoading >
     <ng-container *ngIf="errMessage; else loading">
-      <div  class="text-danger">
-        {{errMessage}}
+      <div class="alert alert-danger  container col-md-6  " style="margin-top: 150px;" role="alert">
+        <h2 class="text-danger ">
+          <img src="assets/bad.png" height="65px" class="mb-2">
+          Erreur coté serveur !!!
+        </h2>
+        <h3 class="text-danger">Téléchargement des données est échoué</h3>
       </div>
     </ng-container>
     <ng-template #loading >
       <div class="text-center " id="loading">
-        <div class="spinner-border text-primary" style="width: 6rem; height: 6rem;" role="status">
+        <div class="spinner-grow text-black " style="width: 8rem; height: 8rem; margin-top: 250px;" role="status">
         </div></div>
     </ng-template>
 

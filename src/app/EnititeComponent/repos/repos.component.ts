@@ -14,7 +14,6 @@ import {ReposService} from "../../Services/repos.service";
 })
 export class ReposComponent implements OnInit{
 
-  searchReposFormGroup!:FormGroup;
   repos!: Observable<Array<Repos>>;
   errMessage!:String;
 
@@ -26,8 +25,14 @@ export class ReposComponent implements OnInit{
   constructor(private reposService :ReposService, private fb : FormBuilder, private router:Router) {
   }
   handelgetRepos() {
-    let kw = this.searchReposFormGroup?.value.keyword;
-    this.repos = this.reposService.getListRepos();
+
+    this.repos = this.reposService.getListRepos().pipe(
+      tap(data => console.log('Données reçues dans le composant :', data)),
+      catchError(err => {
+        this.errMessage = err.message;
+        return throwError(err);
+      })
+    );
   }
 
 
