@@ -87,4 +87,4 @@ Voici quelques captures d'écran illustrant les différentes interfaces de l'app
 
 ## 🔗 Lien avec la Partie Backend
 
-👉Pour une expérience complète, consulte également la partie **backend** de l'application qui s'occupe de l'interface utilisateur et des interactions en temps réel : <a href="https://github.com/BiouiAdnane/Backend-Application---Gestion-des-Services-de-Messagerie-et-de-Transport" target="_blank">Lien vers le dépôt Backend</a>.
+👉Pour une expérience complète, consulte également la partie **backend** de l'application qui s'occupe des différents traitements de l'application : <a href="https://github.com/BiouiAdnane/Backend-Application---Gestion-des-Services-de-Messagerie-et-de-Transport" target="_blank">Lien vers le dépôt Backend</a>.
