@@ -45,19 +45,45 @@ L'un des aspects les plus complexes de l'application est la **création de nouve
 Voici quelques captures d'écran illustrant les différentes interfaces de l'application :
 
 #### 🖥️ Interface de Gestion des Conducteurs
-![Gestion des Conducteurs](./images/gestion-conducteurs.png)
+
+##### - Liste des conducteurs
+![Liste des Conducteurs](./images/liste-conducteurs.jpg)
+
+##### - Modifier un conducteur
+![Mofifier Conducteurs](./images/modifier-conducteur.jpg)
+
+##### - Modifier un permis de conduite
+![Mofifier Permis de conduite](./images/modifier-permis.jpg)
+
+##### - Afficher les détails d'un conducteurs
+![Afficher les détails d'un conducteurs](./images/afficher-conducteur.jpg)
 
 #### 🚗 Interface de Gestion des Véhicules
-![Gestion des Véhicules](./images/gestion-vehicules.png)
+
+##### - Liste des véhicules
+![Liste des Véhicules](./images/liste-vehicule.jpg)
+
+##### - Création d'un nouveau véhicule
+![Nouveau Véhicule](./images/nouveu-vehicule.jpg)
 
 #### 🛌 Interface de Gestion des Repos des Conducteurs
-![Gestion des Repos](./images/gestion-repos.png)
 
-#### 🗺️ Interface d'Affichage des Voyages
-![Affichage des Voyages](./images/affichage-voyages.png)
+##### - Liste des repos
+![Liste des Repos](./images/liste-repos.jpg)
+
+##### - Création d'un nouveau repos
+![Nouveau Repos](./images/nouveau-repos.jpg)
 
 #### ✈️ Interface de Création de Nouveaux Voyages
-![Création de Nouveaux Voyages](./images/creation-voyages.png)
+
+##### - La disponibilitée et la conformitée des conducteurs et des véhicules avec le type de voyage et sa date
+![Nouveau Voyage](./images/nouveau-voyage-1.jpg)
+
+##### - La disponibilitée et la conformitée du conducteur seulement avec le type de voyage et sa date
+![Nouveau Voyage](./images/nouveau-voyage-2.jpg)
+
+##### - Ni les conducteurs, ni les véhicules conforment et disponible avec le type de ce voyage et sa date
+![Nouveau Voyage](./images/nouveau-voyage-3.jpg)
 
 ## 🔗 Lien avec la Partie Backend
 
